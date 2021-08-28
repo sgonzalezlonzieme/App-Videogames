@@ -27,5 +27,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     }
-  });
+  },
+  {
+    createdAt: false,
+    updatedAt: false,
+  });//quitar los updates, no los uso);
 };
