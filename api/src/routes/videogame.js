@@ -33,10 +33,17 @@ router.post('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
       try{
-          
          const idVideogame = req.params.id
 
          if(validate(idVideogame)){
+            
+            const resultDb = await Videogame.findAll({
+                where: {
+                    id: idVideogame
+                },
+                include: Genre
+            })
+          return res.send(resultDb)
             
          }
 
