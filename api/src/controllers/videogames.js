@@ -62,7 +62,7 @@ async function getAllVideogamesAndQuery (req, res, next){
 
        const ApiPage2 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=2`)).data.results
 
-       const ApiPAge3 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=3`)).data.results
+       const ApiPAge3 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=20&page=3`)).data.results
 
        let videogamesApiConcat = [...ApiPage1, ...ApiPage2, ...ApiPAge3]
 
