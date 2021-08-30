@@ -1,9 +1,24 @@
 import './App.css';
+import { Route } from "react-router-dom"
+import React from 'react';
+import { LandingPage } from './components/Landingpage/LandingPage.js';
+import { Home } from './components/Home/Home';
+import { NavBar } from './components/NavBar/NavBar';
+import { CreateVideogame } from './components/CreateVideogame/CreateVideogame';
+import { VideogameDetails } from './components/VideogameDetails/VideogameDetails';
+import { useLocation } from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Henry Videogames</h1>
+  const location = useLocation()
+     
+  return (<div>
+    {location.pathname !== '/' ? <NavBar/> : null }
+    <React.Fragment>
+        <Route exact path="/" component={LandingPage}/>
+        <Route exact path="/home" component={Home}/>
+        <Route exact path="/create" component={CreateVideogame}/>
+        <Route exact path="/details" component={VideogameDetails}/>
+    </React.Fragment>
     </div>
   );
 }
