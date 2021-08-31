@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/" component={LandingPage}/>
         <Route exact path="/home" component={Home}/>
         <Route exact path="/create" component={CreateVideogame}/>
-        <Route exact path="/details" component={VideogameDetails}/>
+        <Route exact path="/details/:id" component={VideogameDetails}/>
     </React.Fragment>
     </div>
   );

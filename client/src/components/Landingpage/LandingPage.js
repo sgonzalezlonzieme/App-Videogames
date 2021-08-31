@@ -10,7 +10,7 @@ export function LandingPage(){
 
     useEffect(() => {
       dispatch(getVideogames())
-    }, [])
+    }, [])  // eslint-disable-line react-hooks/exhaustive-deps 
 
     return(
     <div className='LandingPage_All'>
