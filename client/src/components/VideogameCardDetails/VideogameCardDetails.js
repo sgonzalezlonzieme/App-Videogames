@@ -3,11 +3,13 @@
 
 export function VideogameCardDetails(props){
     
+
     return(<div>
         <div>
             <h2>{props.name}</h2>
         </div>
         <div>
+             {/* buscar htmlFor */}
             <label><strong>Genres</strong></label>
             <div>{props.genres?.join(', ')}</div>
         </div>
@@ -28,7 +30,8 @@ export function VideogameCardDetails(props){
         </div>
         <div>
             <label><strong>Platforms</strong></label>
-            <div>{props.platforms}</div>
+            <div>{props.platforms?.join(', ')}</div>
+            {/* Tira error */}
         </div>
     </div>)
 }

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { getVideogameById } from "../../actions";
 
 export function VideogameDetails(props){
-    console.log(props)
+   console.log(props)
     const dispatch = useDispatch()
     const videogame = useSelector(state => state.videogame)
     const id = props.match.params.id
@@ -17,7 +17,7 @@ export function VideogameDetails(props){
     return(
         <div>
             <VideogameCardDetails name={videogame.name} genres={videogame.genres} 
-            image={videogame.image} description={videogame.released} rating={videogame.rating} platforms={videogame.platforms}/>
+            image={videogame.image} released={videogame.released} rating={videogame.rating} platforms={videogame.platforms} description={videogame.description}/>
         </div>
     )
 }
