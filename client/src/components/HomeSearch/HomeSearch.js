@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getVideogamesByQuery } from "../../actions";
 
 
-export function InputHome(){
+export function HomeSearch(){
      const dispatch = useDispatch()
      const [name, setName] = useState("")
 
@@ -14,11 +14,12 @@ export function InputHome(){
     const HandleSubmit = (e) => {
        e.preventDefault();
        dispatch(getVideogamesByQuery(name))
+       setName("")
     }
 
     return(<div>
         <form onSubmit={HandleSubmit}>
-            <input type='text' placeholder='Insert videogame...' value={name} onChange={HandleChange}/>
+            <input name='videogame' type='text' placeholder='Insert videogame...' value={name} onChange={HandleChange}/>
             <button type='Submit' value='Search'>Search</button>
         </form>
     </div>)

@@ -9,13 +9,13 @@ const initialState = {
 //arreglar el query
 function rootReducer(state = initialState, action){
     switch(action.type){
-      case GET_VIDEOGAMES:
+      case GET_VIDEOGAMES://para la home al comienzo
         return {...state, videogames: action.payload}
-      case GET_VIDEOGAMES_BY_QUERY:
+      case GET_VIDEOGAMES_BY_QUERY://para el search del home
         return {...state, videogames: action.payload}
-      case GET_VIDEOGAMES_BY_ID:
+      case GET_VIDEOGAMES_BY_ID://para el details
         return {...state, videogame: action.payload}
-      case POST_NEW_VIDEOGAME:
+      case POST_NEW_VIDEOGAME://para el form
         return {...state, newVideogame: action.payload}
       default:
           return state; 

@@ -3,7 +3,7 @@ const axios = require('axios');
 const {Op} = require('sequelize');
 const {API_KEY} = process.env;
 
-async function getAllVideogamesAndQuery (req, res, next){
+async function getAllVideogamesAndQuery(req, res, next){
        
     try{
         const {name} = req.query
@@ -13,7 +13,7 @@ async function getAllVideogamesAndQuery (req, res, next){
         const resultDb = await Videogame.findAll({
             where: {
                  name: {
-                     [Op.iLike]: `%${name}%`
+                     [Op.iLike]: `${name}%` //corregir para que me traiga según el nombre
                  }
                 },
             include: Genre,

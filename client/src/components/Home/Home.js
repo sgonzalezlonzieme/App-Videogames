@@ -1,5 +1,5 @@
 import { VideogamesHome } from "../VideogamesHome/VideogamesHome"
-import { InputHome } from "../InputHome/InputHome"
+import { HomeSearch } from "../HomeSearch/HomeSearch"
 
 
 
@@ -8,7 +8,7 @@ export function Home(){
     return(
         <div>
            <div>
-             <InputHome/>
+             <HomeSearch/>
            </div>
            <div>
              <VideogamesHome/>
