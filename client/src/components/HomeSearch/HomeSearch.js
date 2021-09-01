@@ -7,19 +7,19 @@ export function HomeSearch(){
      const dispatch = useDispatch()
      const [name, setName] = useState("")
 
-    const HandleChange = (e) => {
+    const handleChange = (e) => {
         setName(e.target.value)
     }
 
-    const HandleSubmit = (e) => {
+    const handleSubmit = (e) => {
        e.preventDefault();
        dispatch(getVideogamesByQuery(name))
        setName("")
     }
 
     return(<div>
-        <form onSubmit={HandleSubmit}>
-            <input name='videogame' type='text' placeholder='Insert videogame...' value={name} onChange={HandleChange}/>
+        <form onSubmit={handleSubmit}>
+            <input name='videogame' type='text' placeholder='Insert videogame...' value={name} onChange={handleChange}/>
             <button type='Submit' value='Search'>Search</button>
         </form>
     </div>)

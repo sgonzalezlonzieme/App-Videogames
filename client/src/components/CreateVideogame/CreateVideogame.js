@@ -22,7 +22,8 @@ export function CreateVideogame(){
 
     const handleGenres = (e) => {
         setNewVideogame({
-            ...newVideogame,
+            ...newVideogame, 
+            //Array.from(e.target.selectedOptions, option => option.value)
             [e.target.name] :  Array.from(e.target.selectedOptions).map(p=> p.value)
         })//encontrar otra forma
     }
