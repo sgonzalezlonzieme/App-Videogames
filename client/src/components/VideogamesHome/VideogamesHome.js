@@ -14,7 +14,7 @@ export function VideogamesHome(){
              videogames.map(v => (
                 // Error en consola por mismo id
                 <div>
-                   <VideogamesCardsHome name={v.name} genres={v.genres?.join(', ')} image={v.image}/>
+                   <VideogamesCardsHome id={v.id} name={v.name} genres={v.genres?.join(', ')} image={v.image}/>
                 </div>
             ))}
         </div>)

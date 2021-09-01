@@ -29,7 +29,8 @@ export const getVideogameById = (id) => {
 
 export const PostNewVideogame = (data) => {
      return async function(dispatch){
-        let result = (await axios.post(`http://localhost:3001/create`, data)).data
+         //Acá está el problema!!! Probar agregandolé algo al videogame post /
+        let result = (await axios.post(`http://localhost:3001/videogame/`, data)).data 
         return dispatch({type: POST_NEW_VIDEOGAME, payload: result})//confirmar puerto
      }
 }

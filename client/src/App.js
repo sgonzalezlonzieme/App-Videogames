@@ -16,7 +16,8 @@ function App() {
     <React.Fragment>
         <Route exact path="/" component={LandingPage}/>
         <Route exact path="/home" component={Home}/>
-        <Route exact path="/create" component={CreateVideogame}/>
+        {/* cambiar a videogame */}
+        <Route exact path="/create" component={CreateVideogame}/> 
         <Route exact path="/details/:id" component={VideogameDetails}/>
     </React.Fragment>
     </div>

@@ -24,7 +24,7 @@ export function CreateVideogame(){
         setNewVideogame({
             ...newVideogame,
             [e.target.name] :  Array.from(e.target.selectedOptions).map(p=> p.value)
-        })//probar otra forma
+        })//encontrar otra forma
     }
 
     useEffect(() => {
