@@ -30,7 +30,7 @@ export function VideogameCardDetails(props){
         </div>
         <div>
             <label><strong>Platforms</strong></label>
-            <div>{props.platforms?.join(', ')}</div>
+            <div>{props.platforms}</div>
             {/* Tira error */}
         </div>
     </div>)

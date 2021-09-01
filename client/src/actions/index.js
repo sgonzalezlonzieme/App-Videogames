@@ -3,6 +3,7 @@ export const GET_VIDEOGAMES = 'GET_VIDEOGAMES';
 export const GET_VIDEOGAMES_BY_QUERY = 'GET_VIDEOGAMES_BY_QUERY'
 export const GET_VIDEOGAMES_BY_ID = 'GET_VIDEOGAMES_BY_ID';
 export const POST_NEW_VIDEOGAME = 'POST_NEW_VIDEOGAME'
+export const GET_GENRES = 'GET_GENRES'
 
 
 export const getVideogames = () => {
@@ -29,6 +30,13 @@ export const getVideogameById = (id) => {
 export const PostNewVideogame = (data) => {
      return async function(dispatch){
         let result = (await axios.post(`http://localhost:3001/create`, data)).data
-        return dispatch({type: POST_NEW_VIDEOGAME, payload: result})
+        return dispatch({type: POST_NEW_VIDEOGAME, payload: result})//confirmar puerto
      }
+}
+
+export const getGenres = () => {
+    return async function(dispatch){
+        let results = (await axios.get(`http://localhost:3001/genres`)).data
+        return dispatch({type: GET_GENRES, payload: results })
+    }
 }

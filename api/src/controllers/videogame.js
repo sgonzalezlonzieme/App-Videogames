@@ -77,7 +77,7 @@ async function getVideogameById (req, res, next) {
                 description: description_raw,
                 released,
                 rating,
-                platforms: platforms.map(p => p.platform.name),
+                platforms: platforms.map(p => p.platform.name).join(', '),
                 genres: genres.map(p => p.name),
                 image: background_image,
             }

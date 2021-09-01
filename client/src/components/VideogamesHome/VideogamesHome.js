@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { VideogamesCardsHome } from "../VideogamesCardsHome/VideogamesCardsHome";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 
 
