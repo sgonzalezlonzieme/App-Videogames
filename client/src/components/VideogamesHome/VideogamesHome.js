@@ -6,15 +6,15 @@ import { VideogamesCardsHome } from "../VideogamesCardsHome/VideogamesCardsHome"
 
 export function VideogamesHome(){
     
-    const videogames = useSelector(state => state.videogames) 
+    const videogamesFilter = useSelector(state => state.videogamesFilter) 
 
     return(
         <div>
-            {videogames.length < 1 ? <h1>Loading...</h1> :
-             videogames.map(v => (
+            {videogamesFilter.length < 1 ? <h1>Loading...</h1> :
+             videogamesFilter.map(games => (
                 // Error en consola por mismo id
                 <div>
-                   <VideogamesCardsHome id={v.id} name={v.name} genres={v.genres?.join(', ')} image={v.image}/>
+                   <VideogamesCardsHome id={games.id} name={games.name} genres={games.genres?.join(', ')} image={games.image}/>
                 </div>
             ))}
         </div>)

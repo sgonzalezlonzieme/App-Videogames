@@ -1,11 +1,18 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { getVideogamesByQuery } from "../../actions";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getVideogamesByQuery, getVideogames } from "../../actions";
 
 
 export function HomeSearch(){
      const dispatch = useDispatch()
      const [name, setName] = useState("")
+     const videogames = useSelector(state => state.videogames)
+
+    useEffect(() => {
+       if(videogames.length < 1){
+         dispatch(getVideogames())
+       }
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps 
 
     const handleChange = (e) => {
         setName(e.target.value)

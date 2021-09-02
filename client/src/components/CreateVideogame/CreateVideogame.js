@@ -24,12 +24,14 @@ export function CreateVideogame(){
         setNewVideogame({
             ...newVideogame, 
             //Array.from(e.target.selectedOptions, option => option.value)
-            [e.target.name] :  Array.from(e.target.selectedOptions).map(p=> p.value)
+            [e.target.name] : Array.from(e.target.selectedOptions).map(p => p.value)
         })//encontrar otra forma
     }
 
     useEffect(() => {
-      dispatch(getGenres())
+      if(genres.length < 1){
+        dispatch(getGenres()) 
+      }   
     }, []) // eslint-disable-line react-hooks/exhaustive-deps 
 
     //realizar el validate 
@@ -52,6 +54,7 @@ export function CreateVideogame(){
                    <label>Rating : </label>
                    <input name='rating' type='number' min='0' max='5' placeholder='Insert number...' value={newVideogame.rating} onChange={handleChange}/>
                </div>
+               {/* Mapear las platforms */}
                <div>
                    <label>Platforms : </label>
                    <input name='platforms' type='text' placeholder='Insert platforms...' value={newVideogame.platforms} onChange={handleChange}/>
@@ -63,8 +66,8 @@ export function CreateVideogame(){
                <div>
                   <label>Genres : </label>
                   <select name='genres' multiple='multiple' onChange={handleGenres}>
-                    {genres.map(p => (
-                        <option value={p.id}>{p.name}</option>
+                    {genres.map(genre => (
+                        <option value={genre.id}>{genre.name}</option>
                     ))}
                  </select>
                </div>

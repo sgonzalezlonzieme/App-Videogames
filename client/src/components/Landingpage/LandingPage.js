@@ -10,12 +10,11 @@ export function LandingPage(){
 
     useEffect(() => {
       dispatch(getVideogames())
+      //ver si traer acá o no los genres
     }, [])  // eslint-disable-line react-hooks/exhaustive-deps 
 
     return(
     <div className='LandingPage_All'>
-     <div>
          <ButtonHome />
-     </div>  
     </div>)
 }
