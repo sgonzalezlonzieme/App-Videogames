@@ -20,8 +20,8 @@ export function FilterComponent(){
         dispatch(orderById(e.target.value))
     }
 
-    function handleChangeFilter(){ //cambiar nombre
-        dispatch(orderByRating())
+    function handleChangeFilter(e){ //cambiar nombre
+        dispatch(orderByRating(e.target.value))
     }
 
 

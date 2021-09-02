@@ -48,11 +48,11 @@ function rootReducer(state = initialState, action){
               case 'A-Z':
                 return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))]}
               case 'Z-A':
-                return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))]}
+                return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() < a.name.toLowerCase()) ? -1 : 0))]}
               case 'HIGHEST_TO_LOWEST':
-                return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0))]}
-              case 'LOWEST_TO_HIGHEST':
                 return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.rating < b.rating) ? 1 : ((b.rating < a.rating) ? -1 : 0))]}
+              case 'LOWEST_TO_HIGHEST':
+                return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0))]}
               default:
                 return state;
            }
