@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES, GET_VIDEOGAMES_BY_QUERY, GET_VIDEOGAMES_BY_ID, POST_NEW_VIDEOGAME, GET_GENRES, ORDER_BY_GENRES, LINK_HOME, ORDER_BY_ID } from "../actions";
+import { GET_VIDEOGAMES, GET_VIDEOGAMES_BY_QUERY, GET_VIDEOGAMES_BY_ID, POST_NEW_VIDEOGAME, GET_GENRES, ORDER_BY_GENRES, LINK_HOME, ORDER_BY_ID, ORDER_TYPE } from "../actions";
 
 
 const initialState = {
@@ -40,6 +40,21 @@ function rootReducer(state = initialState, action){
                 return {...state, videogamesFilter: state.videogames.filter(p => typeof p.id === 'number')}
               default:
                   return state;
+           }
+      case ORDER_TYPE:
+           switch(action.payload){
+              case 'All':
+               return {...state, videogamesFilter: state.videogames}
+              case 'A-Z':
+                return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))]}
+              case 'Z-A':
+                return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))]}
+              case 'HIGHEST_TO_LOWEST':
+                return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0))]}
+              case 'LOWEST_TO_HIGHEST':
+                return {...state, videogamesFilter: [...state.videogamesFilter.sort((a,b) => (a.rating < b.rating) ? 1 : ((b.rating < a.rating) ? -1 : 0))]}
+              default:
+                return state;
            }
       default:
           return state; 

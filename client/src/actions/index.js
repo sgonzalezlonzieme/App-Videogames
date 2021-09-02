@@ -7,6 +7,7 @@ export const GET_GENRES = 'GET_GENRES';
 export const ORDER_BY_GENRES = 'ORDER_BY_GENRES';
 export const LINK_HOME = 'LINK_HOME';
 export const ORDER_BY_ID = 'ORDER_BY_ID';
+export const ORDER_TYPE = 'ORDER_TYPE';
 
 export const getVideogames = () => {
     return async (dispatch) => {
@@ -61,3 +62,9 @@ export const orderById = (value) => {
        return dispatch({type: ORDER_BY_ID, payload: value})
     }
 }
+
+export const orderByRating = (value) => {
+    return async function(dispatch){
+        return dispatch({type: ORDER_TYPE, payload: value})
+    }
+} 
