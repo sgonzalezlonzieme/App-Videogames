@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getVideogamesByQuery, getVideogames } from "../../actions";
 
 
-export function HomeSearch(){
+export function HomeInputSearch(){
      const dispatch = useDispatch()
      const [name, setName] = useState("")
      const videogames = useSelector(state => state.videogames)

@@ -4,10 +4,10 @@ export const GET_VIDEOGAMES_BY_QUERY = 'GET_VIDEOGAMES_BY_QUERY';
 export const GET_VIDEOGAMES_BY_ID = 'GET_VIDEOGAMES_BY_ID';
 export const POST_NEW_VIDEOGAME = 'POST_NEW_VIDEOGAME';
 export const GET_GENRES = 'GET_GENRES';
-export const ORDER_BY_GENRES = 'ORDER_BY_GENRES';
-export const LINK_HOME = 'LINK_HOME';
-export const ORDER_BY_ID = 'ORDER_BY_ID';
-export const ORDER_TYPE = 'ORDER_TYPE';
+export const RESTART_HOME = 'RESTART_HOME';
+export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
+export const FILTER_BY_ID = 'FILTER_BY_ID';
+export const ORDER_BY = 'ORDER_BY';
 
 export const getVideogames = () => {
     return async (dispatch) => {
@@ -45,26 +45,26 @@ export const getGenres = () => {
     }
 }
 
-export const orderByGenres = (genre) => {
+export const FilterByGenre = (genre) => { 
     return async function(dispatch){
-        return dispatch({type: ORDER_BY_GENRES, payload: genre})
+        return dispatch({type: FILTER_BY_GENRE, payload: genre})
     }
 }
 
-export const linkHome = () => {
+export const restartHome = () => {
     return async function(dispatch){
-        return dispatch({type: LINK_HOME})
+        return dispatch({type: RESTART_HOME})
     }
 }
 
-export const orderById = (value) => {
+export const FilterById = (value) => { //cambiar nombre
     return async function(dispatch){
-       return dispatch({type: ORDER_BY_ID, payload: value})
+       return dispatch({type: FILTER_BY_ID, payload: value})
     }
 }
 
 export const orderByRating = (value) => {
     return async function(dispatch){
-        return dispatch({type: ORDER_TYPE, payload: value})
+        return dispatch({type: ORDER_BY, payload: value})
     }
 } 

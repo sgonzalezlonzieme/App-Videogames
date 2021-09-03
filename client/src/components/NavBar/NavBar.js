@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { linkHome } from "../../actions"
+import { restartHome } from "../../actions"
 
 export function NavBar(){
     const dispatch = useDispatch()
 
     function handleClick(){
-        dispatch(linkHome())
+        dispatch(restartHome())
     }
 
     return(

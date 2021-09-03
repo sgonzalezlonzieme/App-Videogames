@@ -1,6 +1,6 @@
 import { VideogamesHome } from "../VideogamesHome/VideogamesHome"
-import { HomeSearch } from "../HomeSearch/HomeSearch"
-import { FilterComponent } from "../FilterComponent/FilterComponent"
+import { HomeInputSearch} from "../HomeInputSearch/HomeInputSearch"
+import { Filtered } from "../Filtered/Filtered"
 
 
 
@@ -9,10 +9,10 @@ export function Home(){
     return(
         <div>
            <div>
-             <HomeSearch/>
+             <HomeInputSearch />
            </div>
            <div>
-             <FilterComponent/>
+             <Filtered/>
            </div>
            <div>
              <VideogamesHome/>

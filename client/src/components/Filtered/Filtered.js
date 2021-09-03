@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react";
-import { orderByGenres, getGenres, orderById, orderByRating } from "../../actions";
+import { FilterByGenre, getGenres, FilterById, orderByRating } from "../../actions";
 
-export function FilterComponent(){
+export function Filtered(){
     const genres = useSelector(state => state.genres)
     const dispatch = useDispatch()
 
@@ -13,14 +13,14 @@ export function FilterComponent(){
     }, []) // eslint-disable-line react-hooks/exhaustive-deps 
   
     function handleChangeGenres(e){
-        dispatch(orderByGenres(e.target.value))
+        dispatch(FilterByGenre(e.target.value))
     } 
 
     function handleChangeId(e){
-        dispatch(orderById(e.target.value))
+        dispatch(FilterById(e.target.value))
     }
 
-    function handleChangeFilter(e){ //cambiar nombre
+    function handleChangeOrder(e){ //cambiar nombre
         dispatch(orderByRating(e.target.value))
     }
 
@@ -36,11 +36,11 @@ export function FilterComponent(){
             </select>
             <select onChange={handleChangeId}>
                 <option value='All'>All Videogames</option>
-                <option value='Database'>My Videogames</option>
-                <option value='Api'>Page Videogames</option>
+                <option value='DbVideogames'>My Videogames</option>
+                <option value='ApiVideogames'>Page Videogames</option>
             </select>
-            <select onChange={handleChangeFilter}>
-                <option value='All'>All Videogames</option> 
+            <select onChange={handleChangeOrder}>
+                <option value='Default order'>Default order</option> 
                 <option value='A-Z'>A-Z</option>
                 <option value='Z-A'>Z-A</option>
                 <option value='HIGHEST_TO_LOWEST'>Highest rating</option>

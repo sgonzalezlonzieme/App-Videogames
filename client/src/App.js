@@ -1,10 +1,10 @@
 import './App.css';
 import { Route } from "react-router-dom"
 import React from 'react';
-import { LandingPage } from './components/Landingpage/LandingPage.js';
+import { LandingPage } from './components/LandingPage/LandingPage.js';
 import { Home } from './components/Home/Home';
 import { NavBar } from './components/NavBar/NavBar';
-import { CreateVideogame } from './components/CreateVideogame/CreateVideogame';
+import { CreateVideogameForm } from './components/CreateVideogameForm/CreateVideogameForm';
 import { VideogameDetails } from './components/VideogameDetails/VideogameDetails';
 import { useLocation } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/" component={LandingPage}/>
         <Route exact path="/home" component={Home}/>
         {/* cambiar a videogame */}
-        <Route exact path="/create" component={CreateVideogame}/> 
+        <Route exact path="/create" component={CreateVideogameForm}/> 
         <Route exact path="/details/:id" component={VideogameDetails}/>
     </React.Fragment>
     </div>

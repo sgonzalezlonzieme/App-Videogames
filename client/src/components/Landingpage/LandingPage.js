@@ -2,7 +2,7 @@ import './LandingPage.css';
 import { useEffect } from 'react';
 import { getVideogames } from '../../actions';
 import { useDispatch } from 'react-redux';
-import { ButtonHome } from '../ButtonHome/ButtonHome';
+import { LandingPageButton } from '../LandingPageButton/LandingPageButton';
 
 export function LandingPage(){
 
@@ -15,6 +15,6 @@ export function LandingPage(){
 
     return(
     <div className='LandingPage_All'>
-         <ButtonHome />
+         <LandingPageButton />
     </div>)
 }
