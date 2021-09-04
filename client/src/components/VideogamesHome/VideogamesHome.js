@@ -6,29 +6,37 @@ import { Pagination } from "../Pagination/Pagination";
 
 
 export function VideogamesHome(){
+    //hacer distractorin
+    //CAMBIAR NOMBRE DE VIDEOGAMES FILTERED
+    //ALL VIDEOGAMES --- SOLO MAYUSUCULA: COMPONENTE, PROTOTYPE, CLASS
     const videogamesFilter = useSelector(state => state.videogamesFilter) //distractorin
-    const Allvideogames = useSelector(state => state.videogames)
-    const filterByGenres = useSelector(state => state.filterByGenres)
-    const filterById = useSelector(state => state.filterById)
-    const orderBy = useSelector(state => state.orderBy)
+    const allVideogames = useSelector(state => state.videogames)
 
-    console.log(videogamesFilter)
+    // const filterByGenres = useSelector(state => state.filterByGenres)//filtered
+    // const filterById = useSelector(state => state.filterById) //filtered
+    // const orderBy = useSelector(state => state.orderBy)
 
-    const [posts, setPosts]= useState(videogamesFilter);
+    // const [posts, setPosts] = useState([]);
+    const gamesToRender = videogamesFilter.length ? videogamesFilter : allVideogames
+    // setPosts(gamesToRender)
     const [currentPage, setCurrentPage]= useState(1);
     const [postsPerPage]= useState(9); //variable no state
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+    const currentPosts = gamesToRender.slice(indexOfFirstPost, indexOfLastPost)
 
-    useEffect(() => {
-       if(filterByGenres==='All' && filterById==='All' && orderBy==='All'){
-           setPosts(Allvideogames)
-       }else{
-           setPosts(videogamesFilter)
-       }
-    }, [Allvideogames, videogamesFilter, filterByGenres, filterById, orderBy]) // eslint-disable-line react-hooks/exhaustive-deps 
+    useEffect(()=>{
+      
+    }, [])
+
+    // useEffect(() => {
+    //    if(filterByGenres==='All' && filterById==='All' && orderBy==='All'){
+    //        setPosts(allVideogames)
+    //    }else{
+    //        setPosts(videogamesFilter)
+    //    }
+    // }, [allVideogames, videogamesFilter, filterByGenres, filterById, orderBy]) // eslint-disable-line react-hooks/exhaustive-deps 
 
     function paginate(pageNumber){
         setCurrentPage(pageNumber)
@@ -36,6 +44,8 @@ export function VideogamesHome(){
 
     return(
         <div>
+            {console.log(videogamesFilter, "CONSOLE LOG....AAAAA")}
+        
         <div> 
             {//resolver problema de carga
                 // Error en consola por mismo id
@@ -45,7 +55,7 @@ export function VideogamesHome(){
                 </div>//Buscar algún ícono 
             ))}
         <div>
-            {currentPosts.length <= 8 ? <div></div> : <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>}
+            {currentPosts.length <= 8 ? <div></div> : <Pagination postsPerPage={postsPerPage} totalPosts={gamesToRender.length} paginate={paginate}/>}
         </div>
         </div>
         </div>)

@@ -1,18 +1,15 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getVideogamesByQuery, getVideogames } from "../../actions";
+import { useState } from "react";
+import { useDispatch, useSelector} from "react-redux";
+import { getVideogamesByQuery, restartFiltered} from "../../actions";
 
 
 export function HomeInputSearch(){
      const dispatch = useDispatch()
-     const [name, setName] = useState("")
-     const videogames = useSelector(state => state.videogames)
+     
+     const videogamesFiltered = useSelector(state => state.videogamesFilter)
 
-    useEffect(() => {
-       if(videogames.length < 1){
-         dispatch(getVideogames())
-       }
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps 
+     const [name, setName] = useState("")
+
 
     const handleChange = (e) => {
         setName(e.target.value)
@@ -20,14 +17,19 @@ export function HomeInputSearch(){
 
     const handleSubmit = (e) => {
        e.preventDefault();
-       dispatch(getVideogamesByQuery(name))
+       if(name){
+        dispatch(getVideogamesByQuery(name))
+       }else{
+        dispatch(restartFiltered()) // CAMBIAR EL NOMBRE A RESET
+       }
        setName("")
     }
+
 
     return(<div>
         <form onSubmit={handleSubmit}>
             <input name='videogame' type='text' placeholder='Insert videogame...' value={name} onChange={handleChange}/>
-            <button type='Submit' value='Search'>Search</button>
+            <button type='Submit'>{videogamesFiltered.length && !name ? "Show All" : "Search"}</button>
         </form>
     </div>)
 }

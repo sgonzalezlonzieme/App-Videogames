@@ -6,7 +6,7 @@ export function NavBar(){
     const dispatch = useDispatch()
 
     function handleClick(){
-        dispatch(restartHome())
+        dispatch(restartHome()) 
     }
 
     return(

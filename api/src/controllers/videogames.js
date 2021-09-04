@@ -44,7 +44,7 @@ async function getAllVideogamesAndQuery(req, res, next){
         if(responseDb_Api.length){  
          return res.send(responseDb_Api);
         }else{
-         return res.send('No Videogames Found')
+         return res.send(['No Videogames Found'])
         }
       }
         

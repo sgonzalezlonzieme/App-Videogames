@@ -2,24 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { PostNewVideogame, getGenres } from "../../actions";
 import { useState, useEffect } from "react";
 
+
+
 export function CreateVideogameForm(){
     const dispatch = useDispatch()
     const [newVideogame, setNewVideogame] = useState({})
     const genres = useSelector(state => state.genres)
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        dispatch(PostNewVideogame(newVideogame))
-        alert('Videogame added')
-    }
-
-    const handleChange = (e) => {
-        setNewVideogame({
-            ...newVideogame, 
-            [e.target.name] : e.target.value
-        })
-    }
-
+    
     const handleGenres = (e) => {
         setNewVideogame({
             ...newVideogame, 
@@ -27,24 +16,50 @@ export function CreateVideogameForm(){
             [e.target.name] : Array.from(e.target.selectedOptions).map(p => p.value)
         })//encontrar otra forma
     }
-
+    
     useEffect(() => {
-      if(genres.length < 1){
-        dispatch(getGenres()) 
-      }   
+        if(genres.length < 1){
+            dispatch(getGenres()) 
+        }   
     }, []) // eslint-disable-line react-hooks/exhaustive-deps 
 
-    //realizar el validate 
+    /////////////////////////////
+    const [errors, setErrors] = useState({});
+    
+    
+    function validate(newVideogame) {
+        let errors = {}
+        if(!newVideogame.name){
+            errors.username = 'name is required'
+        }
+        return errors;
+    }
+    
+    const handleSubmit = (e) => {
+            e.preventDefault()
+            dispatch(PostNewVideogame(newVideogame))
+            setErrors(validate(newVideogame))
+        }
+    
+    const handleChange = (e) => {
+        setNewVideogame({
+            ...newVideogame, 
+            [e.target.name] : e.target.value
+        })
+    }
+    
     return(
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
                <div>
                    <label>Name : </label>
-                   <input name='name' type='text' placeholder='Insert name...' value={newVideogame.name} onChange={handleChange} />
+                   <input name='name' type='text' placeholder='Insert name...' value={newVideogame.name} onChange={handleChange} required/>
+                   {errors.name && (<div>{errors.name}</div>)}
                </div>
                <div>
                    <label>Description : </label>
                    <input name='description' type='text' placeholder='Insert description...' value={newVideogame.description} onChange={handleChange}/>
+                   {}
                </div>
                <div>
                    <label>Released : </label>
@@ -61,11 +76,11 @@ export function CreateVideogameForm(){
                </div>
                <div>
                    <label>Image : </label>
-                   <input name='image' type='text' placeholder='Insert url...' value={newVideogame.image} onChange={handleChange}/>
+                   <input name='image' type='text' placeholder='Insert url...' value={newVideogame.image} onChange={handleChange} required/>
                </div> 
                <div>
                   <label>Genres : </label>
-                  <select name='genres' multiple='multiple' onChange={handleGenres}>
+                  <select name='genres' multiple='multiple' onChange={handleGenres} required>
                     {genres.map(genre => (
                         <option value={genre.id}>{genre.name}</option>
                     ))}
