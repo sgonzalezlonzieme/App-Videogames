@@ -48,11 +48,14 @@ export function VideogamesHome(){
         
         <div> 
             {//resolver problema de carga
-                // Error en consola por mismo id
+                //Error en consola por mismo id
+                //Buscar algún ícono para loading
+                //Encontrar alguna forma que cuando el array este vacio devuelva
+                //no videogames found
             currentPosts.length < 1 ? <h1>Loading...</h1> : currentPosts.map(games => (
                 <div>
                    <VideogamesCardsHome id={games.id} name={games.name} genres={games.genres?.join(', ')} image={games.image}/>
-                </div>//Buscar algún ícono 
+                </div>
             ))}
         <div>
             {currentPosts.length <= 8 ? <div></div> : <Pagination postsPerPage={postsPerPage} totalPosts={gamesToRender.length} paginate={paginate}/>}

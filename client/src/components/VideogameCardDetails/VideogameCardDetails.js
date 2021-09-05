@@ -3,7 +3,6 @@
 
 export function VideogameCardDetails(props){
     
-
     return(<div>
         <div>
             <h2>{props.name}</h2>

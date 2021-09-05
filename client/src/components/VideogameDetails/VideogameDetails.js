@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { getVideogameById } from "../../actions";
 
 export function VideogameDetails(props){
-   console.log(props)
+   console.log(props)//Estudiar props.match.params
     const dispatch = useDispatch()
     const videogame = useSelector(state => state.videogame)
     const id = props.match.params.id

@@ -26,7 +26,7 @@ export function Filtered(){
 
 
    //Cambiar nombre del componente
-    return(//ver si a tiempo moduralizar más
+    return(
         <div>
             <select onChange={handleChangeGenres}>
                <option value='All'>All Genres</option>
