@@ -9,27 +9,27 @@ export function VideogameCardDetails(props){
         </div>
         <div>
              {/* buscar htmlFor */}
-            <label><strong>Genres</strong></label>
-            <div>{props.genres?.join(', ')}</div>
+            <label htmlFor='genres'><strong>Genres</strong></label>
+            <div id='genres'>{props.genres?.join(', ')}</div>
         </div>
         <div>{/*  usar endpoint de screenshots */}
             <img src={props.image} alt={props.name}/>
         </div>
         <div>
-            <label><strong>Description</strong></label>
-            <div>{props.description}</div>
+            <label htmlFor='description'><strong>Description</strong></label>
+            <div htmlFor='description'>{props.description}</div>
         </div>
         <div>
-            <label><strong>Released</strong></label>
-            <div>{props.released}</div>
+            <label htmlFor='released'><strong>Released</strong></label>
+            <div id='released'>{props.released}</div>
         </div>
         <div>
-            <label><strong>Rating</strong></label>
-            <div>{props.rating}</div>
+            <label htmlFor='rating'><strong>Rating</strong></label>
+            <div id='rating'>{props.rating}</div>
         </div>
         <div>
-            <label><strong>Platforms</strong></label>
-            <div>{props.platforms}</div>
+            <label htmlFor='platforms'><strong>Platforms</strong></label>
+            <div id='platforms'>{props.platforms}</div>
             {/* Tira error */}
         </div>
     </div>)

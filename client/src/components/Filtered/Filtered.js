@@ -1,16 +1,11 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react";
-import { FilterByGenre, getGenres, FilterById, orderByRating } from "../../actions";
+import { FilterByGenre, FilterById, orderByRating } from "../../actions";
 
 export function Filtered(){
-    const genres = useSelector(state => state.genres)
-    const dispatch = useDispatch()
 
-    useEffect(() => {
-      if(genres.length < 1){
-        dispatch(getGenres())
-      }
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps 
+    const genres = useSelector(state => state.genres)
+
+    const dispatch = useDispatch()
   
     function handleChangeGenres(e){
         dispatch(FilterByGenre(e.target.value))
@@ -24,8 +19,6 @@ export function Filtered(){
         dispatch(orderByRating(e.target.value))
     }
 
-
-   //Cambiar nombre del componente
     return(
         <div>
             <select onChange={handleChangeGenres}>

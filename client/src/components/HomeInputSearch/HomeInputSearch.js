@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { getVideogamesByQuery, restartFiltered} from "../../actions";
+import { getVideogamesByQuery, restartHome} from "../../actions";
 
 
 export function HomeInputSearch(){
      const dispatch = useDispatch()
      
-     const videogamesFiltered = useSelector(state => state.videogamesFilter)
+     const videogamesFiltered = useSelector(state => state.videogamesFiltered)
 
      const [name, setName] = useState("")
 
@@ -20,7 +20,7 @@ export function HomeInputSearch(){
        if(name){
         dispatch(getVideogamesByQuery(name))
        }else{
-        dispatch(restartFiltered()) // CAMBIAR EL NOMBRE A RESET
+        dispatch(restartHome()) // CAMBIAR EL NOMBRE A RESET
        }
        setName("")
     }
