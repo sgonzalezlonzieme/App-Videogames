@@ -26,56 +26,72 @@ export const getVideogames = () => { //TRY CATCH PARA ASYNC
 
 export const getVideogamesByQuery = (name) => { //TRY CATCH PARA ASYNC
     return async (dispatch) => {
-        let results = (await axios.get(`http://localhost:3001/videogames?name=${name}`)).data
-        return dispatch({type: GET_VIDEOGAMES_BY_NAME, payload: results})
+        try{
+            let results = (await axios.get(`http://localhost:3001/videogames?name=${name}`)).data
+            return dispatch({type: GET_VIDEOGAMES_BY_NAME, payload: results})
+        }catch(error){
+            return dispatch({type: GET_VIDEOGAMES_BY_NAME, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+        }
     }
 }
 
 export const getVideogameById = (id) => { //TRY CATCH PARA ASYNC
     return async (dispatch) => {
-        let result = (await axios.get(`http://localhost:3001/videogame/${id}`)).data
-        return dispatch({type: GET_VIDEOGAMES_BY_ID, payload: result })
+        try{
+            let result = (await axios.get(`http://localhost:3001/videogame/${id}`)).data
+            return dispatch({type: GET_VIDEOGAMES_BY_ID, payload: result })
+        }catch(error){
+            return dispatch({type: GET_VIDEOGAMES_BY_ID, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+        }
     }
 }
 
 export const PostNewVideogame = (data) => {//TRY CATCH PARA ASYNC
-     return async function(dispatch){//CAMBIAR NOMBRES
-         //Acá está el problema!!! Probar agregandolé algo al videogame post /
-        let response = await axios.post(`http://localhost:3001/videogame/`, data)
-        let newVideogame = response.data
-        console.log(response)
-        return dispatch({type: POST_NEW_VIDEOGAME, payload: newVideogame})//confirmar puerto
+     return async function(dispatch){
+        try{
+            let response = await axios.post(`http://localhost:3001/videogame/`, data)
+            let newVideogame = response.data
+            console.log(response)
+            return dispatch({type: POST_NEW_VIDEOGAME, payload: newVideogame})//confirmar puerto
+        }catch(error){
+            return dispatch({type: POST_NEW_VIDEOGAME, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+        }
      }
 }
 
 export const getGenres = () => {
     return async function(dispatch){ //TRY CATCH PARA ASYNC
-        let results = (await axios.get(`http://localhost:3001/genres`)).data
-        return dispatch({type: GET_GENRES, payload: results })
+        try{
+            let results = (await axios.get(`http://localhost:3001/genres`)).data
+            return dispatch({type: GET_GENRES, payload: results })
+        }catch(error){
+            return dispatch({type: POST_NEW_VIDEOGAME, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+        }
     }
 }
 
 export const FilterByGenre = (genre) => {  //TRY CATCH PARA ASYNC
-    return async function(dispatch){
+    return function(dispatch){
         return dispatch({type: FILTER_BY_GENRE, payload: genre})
     }
 }
+
+
+export const FilterById = (value) => { //cambiar nombre
+    return function(dispatch){
+        return dispatch({type: FILTER_BY_ID, payload: value})//TRY CATCH PARA ASYNC
+    }
+}
+
+export const orderByRating = (value) => {
+    return function(dispatch){
+        return dispatch({type: ORDER_BY, payload: value})
+    }
+} 
+
 
 export const restartHome = () => {
     return async function(dispatch){//TRY CATCH PARA ASYNC
         return dispatch({type: RESTART_HOME})//TRY CATCH PARA ASYNC
     }
 }
-
-export const FilterById = (value) => { //cambiar nombre
-    return async function(dispatch){
-       return dispatch({type: FILTER_BY_ID, payload: value})//TRY CATCH PARA ASYNC
-    }
-}
-
-export const orderByRating = (value) => {
-    return async function(dispatch){
-        return dispatch({type: ORDER_BY, payload: value})
-    }
-} 
-

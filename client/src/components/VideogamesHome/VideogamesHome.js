@@ -47,6 +47,7 @@ export function VideogamesHome(){
                 //Buscar algún ícono para loading
                 //Encontrar alguna forma que cuando el array este vacio devuelva
                 //no videogames found
+            typeof videogamesFiltered[0] === 'string' ? <h1>No videogames found</h1> :
             currentPosts.length < 1 ? <h1>Loading...</h1> : currentPosts.map(games => (
                 <div>
                    <VideogamesCardsHome id={games.id} name={games.name} genres={games.genres?.join(', ')} image={games.image}/>

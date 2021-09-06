@@ -49,13 +49,13 @@ function rootReducer(state = initialState, action){
               case 'Default order':
                return {...state, videogamesFiltered: [], orderBy: action.payload}
               case 'A-Z': //spread operator
-                return {...state, videogames: [...state.videogamesFiltered.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))], orderBy: action.payload}
+                return {...state, videogamesFiltered: [...state.videogamesFiltered.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))], orderBy: action.payload}
               case 'Z-A': 
-                return {...state, videogames: [...state.videogamesFiltered.sort((a,b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() < a.name.toLowerCase()) ? -1 : 0))], orderBy: action.payload}
+                return {...state, videogamesFiltered: [...state.videogamesFiltered.sort((a,b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() < a.name.toLowerCase()) ? -1 : 0))], orderBy: action.payload}
               case 'HIGHEST_TO_LOWEST':
-                return {...state, videogames: [...state.videogamesFiltered.sort((a,b) => (a.rating < b.rating) ? 1 : ((b.rating < a.rating) ? -1 : 0))], orderBy: action.payload}
+                return {...state, videogamesFiltered: [...state.videogamesFiltered.sort((a,b) => (a.rating < b.rating) ? 1 : ((b.rating < a.rating) ? -1 : 0))], orderBy: action.payload}
               case 'LOWEST_TO_HIGHEST':
-                return {...state, videogames: [...state.videogamesFiltered.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0))], orderBy: action.payload}
+                return {...state, videogamesFiltered: [...state.videogamesFiltered.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0))], orderBy: action.payload}
               default:
                 return state;
            }
