@@ -16,20 +16,24 @@ export function VideogameCardDetails(props){
             <img src={props.image} alt={props.name}/>
         </div>
         <div>
-            <label htmlFor='description'><strong>Description</strong></label>
-            <div htmlFor='description'>{props.description}</div>
+            {!props.description ? <div></div> :
+            (<><label htmlFor='description'><strong>Description</strong></label>
+            <div htmlFor='description'>{props.description}</div></>)}
         </div>
         <div>
-            <label htmlFor='released'><strong>Released</strong></label>
-            <div id='released'>{props.released}</div>
+            {!props.released ? <div></div> :
+            (<><label htmlFor='released'><strong>Released</strong></label>
+            <div id='released'>{props.released}</div></>)}
         </div>
         <div>
-            <label htmlFor='rating'><strong>Rating</strong></label>
-            <div id='rating'>{props.rating}</div>
+            {!props.rating ? <div></div> :
+            (<><label htmlFor='rating'><strong>Rating</strong></label>
+            <div id='rating'>{props.rating}</div></>)}
         </div>
         <div>
-            <label htmlFor='platforms'><strong>Platforms</strong></label>
-            <div id='platforms'>{props.platforms}</div>
+            {!props.platforms ? <div></div> :
+            (<><label htmlFor='platforms'><strong>Platforms</strong></label>
+            <div id='platforms'>{props.platforms}</div></>)}
             {/* Tira error */}
         </div>
     </div>)

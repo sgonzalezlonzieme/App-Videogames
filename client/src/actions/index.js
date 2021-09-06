@@ -16,10 +16,9 @@ export const getVideogames = () => { //TRY CATCH PARA ASYNC
             let response = await axios.get(`http://localhost:3001/videogames`)
             let videogames = response.data
             return dispatch({type: GET_VIDEOGAMES, payload: videogames})
-
         }catch(error){
            console.log(error)//CON UNA SOLA ACTION ME PUEDE ALCANZAR
-           return dispatch({type: GET_VIDEOGAMES, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+            return dispatch({type: GET_VIDEOGAMES, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
         }
     }
 }

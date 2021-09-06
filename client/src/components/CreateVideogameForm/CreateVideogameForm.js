@@ -6,85 +6,121 @@ import { useState, useEffect } from "react";
 
 export function CreateVideogameForm(){
     const dispatch = useDispatch()
-    const [newVideogame, setNewVideogame] = useState({})
+
     const genres = useSelector(state => state.genres)
+
+    const [createdVideogame, setCreatedVideogame] = useState({})
+   
     
-    const handleGenres = (e) => {
-        setNewVideogame({
-            ...newVideogame, 
-            //Array.from(e.target.selectedOptions, option => option.value)
-            [e.target.name] : Array.from(e.target.selectedOptions).map(p => p.value)
-        })//encontrar otra forma
-    }
-    
+   
     useEffect(() => {
         if(genres.length < 1){
             dispatch(getGenres()) 
         }   
     }, []) // eslint-disable-line react-hooks/exhaustive-deps 
 
-    /////////////////////////////
+    ////////////////////////////////////////////////////////////////
+
     const [errors, setErrors] = useState({});
     
-    
-    function validate(newVideogame) {
-        let errors = {}
-        if(!newVideogame.name){
-            errors.username = 'name is required'
+    function validate(createdVideogame) {
+        if(!createdVideogame.name){
+            errors.name = 'name is required'
+        }else{
+            errors.name = '';
+        }
+        if(!createdVideogame.image){
+            errors.image = 'image is required'
+        }else{
+            errors.image = '';
+        }
+        if(!createdVideogame.genres){
+            errors.genres = 'genres are required'
+        }else{
+            errors.genres = '';
         }
         return errors;
     }
     
     const handleSubmit = (e) => {
             e.preventDefault()
-            dispatch(PostNewVideogame(newVideogame))
-            setErrors(validate(newVideogame))
+            if(createdVideogame.name && createdVideogame.image && createdVideogame.genres){
+              dispatch(PostNewVideogame(createdVideogame))
+            }
+            console.log(createdVideogame)
         }
     
     const handleChange = (e) => {
-        setNewVideogame({
-            ...newVideogame, 
+        setCreatedVideogame({
+            ...createdVideogame, 
             [e.target.name] : e.target.value
         })
+        setErrors(validate({...createdVideogame, [e.target.name]: e.target.value}))
+        console.log(errors)
     }
+
+    const handleGenres = (e) => {
+        setCreatedVideogame({
+            ...createdVideogame, 
+            //Array.from(e.target.selectedOptions, option => option.value)
+            [e.target.name] : Array.from(e.target.selectedOptions).map(p => p.value)
+        })
+        setErrors(validate({...createdVideogame, [e.target.name]: e.target.value}))
+    }
+    
     
     return(
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
                <div>
                    <label>Name : </label>
-                   <input name='name' type='text' placeholder='Insert name...' value={newVideogame.name} onChange={handleChange} required/>
+                   <div>
+                   <input name='name' type='text' placeholder='Insert name...' value={createdVideogame.name} onChange={handleChange}/>
                    {errors.name && (<div>{errors.name}</div>)}
+                   </div>
                </div>
                <div>
-                   <label>Description : </label>
-                   <input name='description' type='text' placeholder='Insert description...' value={newVideogame.description} onChange={handleChange}/>
-                   {}
+                   <label htmlFor='description'>Description : </label>
+                   <div>
+                   <textarea id='description' name='description' type='text' placeholder='Insert description...' value={createdVideogame.description} onChange={handleChange}/>
+                   </div>
                </div>
                <div>
                    <label>Released : </label>
-                   <input name='released' type='text' placeholder='Insert date...' value={newVideogame.released} onChange={handleChange}/>
+                   <div>
+                   <input name='released' type='text' placeholder='Insert date...' value={createdVideogame.released} onChange={handleChange}/>
+                   </div>
                </div>
                <div>
                    <label>Rating : </label>
-                   <input name='rating' type='number' min='0' max='5' placeholder='Insert number...' value={newVideogame.rating} onChange={handleChange}/>
+                   <div>
+                   <input name='rating' type='number' min='0' max='5' placeholder='Insert number...' value={createdVideogame.rating} onChange={handleChange}/>
+                   </div>
                </div>
                {/* Mapear las platforms */}
                <div>
                    <label>Platforms : </label>
-                   <input name='platforms' type='text' placeholder='Insert platforms...' value={newVideogame.platforms} onChange={handleChange}/>
+                   <div>
+                   <input name='platforms' type='text' placeholder='Insert platforms...' value={createdVideogame.platforms} onChange={handleChange}/>
+                   </div>
                </div>
                <div>
                    <label>Image : </label>
-                   <input name='image' type='text' placeholder='Insert url...' value={newVideogame.image} onChange={handleChange} required/>
+                   <div>
+                   <input name='image' type='text' placeholder='Insert url...' value={createdVideogame.image} onChange={handleChange}/>
+                   {errors.image && (<div>{errors.image}</div>)}
+                   </div>
                </div> 
                <div>
                   <label>Genres : </label>
-                  <select name='genres' multiple='multiple' onChange={handleGenres} required>
+                  <div>
+                  <select name='genres' multiple='multiple' onChange={handleGenres}>
                     {genres.map(genre => (
                         <option value={genre.id}>{genre.name}</option>
                     ))}
                  </select>
+                     {errors.genres && (<div>{errors.genres}</div>)}
+                 </div>
                </div>
                <div>
                     <input type='submit' value='Send'/>
