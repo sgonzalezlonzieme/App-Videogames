@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { getVideogamesByQuery, restartHome} from "../../actions";
+import styles from './HomeInputSearch.module.css'
 
 
 export function HomeInputSearch(){
@@ -26,7 +27,7 @@ export function HomeInputSearch(){
     }
 
 
-    return(<div>
+    return(<div className={styles.container}>
         <form onSubmit={handleSubmit}>
             <input name='videogame' type='text' placeholder='Insert videogame...' value={name} onChange={handleChange}/>
             <button type='Submit'>{videogamesFiltered.length && !name ? "Show All" : "Search"}</button>

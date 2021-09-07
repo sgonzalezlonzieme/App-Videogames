@@ -1,0 +1,14 @@
+.landingPage{
+        /* opacity: 1;
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 2s; */
+        background-size: cover; 
+        background-position: center 70%;
+        overflow:hidden;
+        width: 100vw;
+        height: 100vh;   
+        background-image: url(../../img/background_landing.jpg);
+}
+

@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 import { FilterByGenre, FilterById, orderByRating } from "../../actions";
+import styles from './Filtered.module.css'
 
 export function Filtered(){
 
@@ -20,19 +21,19 @@ export function Filtered(){
     }
 
     return(
-        <div>
-            <select onChange={handleChangeGenres}>
+        <div className={styles.container}>
+            <select onChange={handleChangeGenres} className={styles.select}>
                <option value='All'>All Genres</option>
                {genres.map(p => (
                  <option value={p.name}>{p.name}</option>
                ))}
             </select>
-            <select onChange={handleChangeId}>
+            <select onChange={handleChangeId} className={styles.select}>
                 <option value='All'>All Videogames</option>
                 <option value='DbVideogames'>My Videogames</option>
                 <option value='ApiVideogames'>Page Videogames</option>
             </select>
-            <select onChange={handleChangeOrder}>
+            <select onChange={handleChangeOrder} className={styles.select}>
                 <option value='Default order'>Default</option> 
                 <option value='A-Z'>A-Z</option>
                 <option value='Z-A'>Z-A</option>

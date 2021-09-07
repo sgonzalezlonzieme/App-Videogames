@@ -1,8 +1,8 @@
-import './LandingPage.css';
 import { useEffect } from 'react';
 import { getVideogames, getGenres } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { LandingPageButton } from '../LandingPageButton/LandingPageButton';
+import styles from './LandingPage.module.css'
 
 export function LandingPage(){
 
@@ -15,7 +15,7 @@ export function LandingPage(){
     }, [])  // eslint-disable-line react-hooks/exhaustive-deps 
 
     return(
-    <div className='LandingPage_All'>
+    <div className={styles.landingPage}>
          <LandingPageButton />
     </div>)
 }
