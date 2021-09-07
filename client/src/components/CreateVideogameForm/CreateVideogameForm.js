@@ -70,7 +70,7 @@ export function CreateVideogameForm(){
     
     return(
         <div className={styles.container}>
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
                <div>
                    <label>Name : </label>
                    <div>

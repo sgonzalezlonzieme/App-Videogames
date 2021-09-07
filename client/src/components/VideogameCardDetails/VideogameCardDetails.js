@@ -1,9 +1,9 @@
-
+import styles from './VideogameCardDetails.module.css'
 
 
 export function VideogameCardDetails(props){
     
-    return(<div>
+    return(<div className={styles.container}>
         <div>
             <h2>{props.name}</h2>
         </div>
@@ -12,8 +12,8 @@ export function VideogameCardDetails(props){
             <label htmlFor='genres'><strong>Genres</strong></label>
             <div id='genres'>{props.genres?.join(', ')}</div>
         </div>
-        <div>{/*  usar endpoint de screenshots */}
-            <img src={props.image} alt={props.name}/>
+        <div >{/*  usar endpoint de screenshots */}
+            <img className={styles.image} src={props.image} alt={props.name}/>
         </div>
         <div>
             {!props.description ? <div></div> :

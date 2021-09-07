@@ -1,6 +1,11 @@
 .name{
     text-decoration: none;
     color: white;
+    font-size: 10px;
+}
+
+.genres{
+    color: white;
 }
 
 .image{
@@ -9,14 +14,14 @@
 }
 
 .image img{
-    margin-top: 1rem;
     margin-bottom: 0.5rem;
     display: block;
     border-radius: 2px;
     bottom: auto;
     max-height: 260px;
     width:  100%;
-    height: 50%;
-    object-fit: cover;
-    object-position: center;  
+    height: 20%;
+    bottom: 20%;
+    
+   
 }

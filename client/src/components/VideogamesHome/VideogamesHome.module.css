@@ -2,19 +2,19 @@
     margin-top: 160px;    
    
     display: inline-block;   
-    width: 323px;
-    height: 300px;
+    justify-content: center;
     text-align: center;
 
     border-radius: 3px;
     margin: 43px;    
-    border: 1.6px solid rgb(231, 143, 61);
+    border: 1.6px solid rgb(29, 16, 4);
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.4);
     text-decoration: none;
 
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     margin-bottom: 15px;
-
+  
+    background-color: rgb(17, 9, 4);
     
    
 }

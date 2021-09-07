@@ -2,6 +2,7 @@ import { VideogameCardDetails } from "../VideogameCardDetails/VideogameCardDetai
 import {useDispatch, useSelector} from 'react-redux';
 import { useEffect } from "react";
 import { getVideogameById } from "../../actions";
+import styles from './VideogameDetails.module.css'
 
 export function VideogameDetails(props){
    console.log(props)//Estudiar props.match.params
@@ -15,7 +16,7 @@ export function VideogameDetails(props){
     
 
     return(
-        <div>
+        <div className={styles.container}>
             <VideogameCardDetails name={videogame.name} genres={videogame.genres} 
             image={videogame.image} released={videogame.released} rating={videogame.rating} platforms={videogame.platforms} description={videogame.description}/>
         </div>
