@@ -1,1 +1,20 @@
+.container_videogame{
+    margin-top: 160px;    
+   
+    display: inline-block;   
+    width: 323px;
+    height: 300px;
+    text-align: center;
 
+    border-radius: 3px;
+    margin: 43px;    
+    border: 1.6px solid rgb(231, 143, 61);
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    
+   
+}

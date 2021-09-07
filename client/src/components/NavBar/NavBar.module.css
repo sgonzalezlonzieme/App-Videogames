@@ -1,0 +1,28 @@
+.container{
+    background-color: black;
+    padding: 20px;
+}
+
+.links{
+    color:white;
+    text-decoration: none;
+    display: flex;  
+    justify-content: center; 
+    align-content: center; 
+    align-items: center; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.links:hover{
+    text-decoration: none;
+    display: flex;  
+    justify-content: center; 
+    align-content: center; 
+    align-items: center; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    box-shadow: 1 0 20px rgb(255, 161, 38);
+}

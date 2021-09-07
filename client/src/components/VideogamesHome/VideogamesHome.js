@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { VideogamesCardsHome } from "../VideogamesCardsHome/VideogamesCardsHome";
 import { Pagination } from "../Pagination/Pagination";
-
+import styles from './VideogamesHome.module.css'
 
 
 export function VideogamesHome(){
@@ -41,7 +41,7 @@ export function VideogamesHome(){
 
     return(
         <div>
-        <div> 
+        <div > 
             {//resolver problema de carga
                 //Error en consola por mismo id
                 //Buscar algún ícono para loading
@@ -49,7 +49,7 @@ export function VideogamesHome(){
                 //no videogames found
             typeof videogamesFiltered[0] === 'string' ? <h1>No videogames found</h1> :
             currentPosts.length < 1 ? <h1>Loading...</h1> : currentPosts.map(games => (
-                <div>
+                <div className={styles.container_videogame}>
                    <VideogamesCardsHome id={games.id} name={games.name} genres={games.genres?.join(', ')} image={games.image}/>
                 </div>
             ))}

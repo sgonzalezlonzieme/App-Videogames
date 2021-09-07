@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { PostNewVideogame, getGenres } from "../../actions";
 import { useState, useEffect } from "react";
+import styles from './CreateVideogameForm.module.css'
 
 export function CreateVideogameForm(){
     const dispatch = useDispatch()
@@ -68,7 +69,7 @@ export function CreateVideogameForm(){
     
     
     return(
-        <div>
+        <div className={styles.container}>
             <form onSubmit={(e) => handleSubmit(e)}>
                <div>
                    <label>Name : </label>
