@@ -2,8 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { PostNewVideogame, getGenres } from "../../actions";
 import { useState, useEffect } from "react";
 
-
-
 export function CreateVideogameForm(){
     const dispatch = useDispatch()
 

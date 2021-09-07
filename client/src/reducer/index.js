@@ -38,7 +38,7 @@ function rootReducer(state = initialState, action){
               case 'All':
                 return {...state, videogamesFiltered: [], filterById: action.payload}
               case 'DbVideogames': 
-                return {...state, videogamesFiltered: state.videogames.filter(p => p.id.length > 10), filterById: action.payload}//typeof String
+                return {...state, videogamesFiltered: state.videogames.filter(p => p.id.length > 10).length > 1 , filterById: action.payload}//typeof String
               case 'ApiVideogames':
                 return {...state, videogamesFiltered: state.videogames.filter(p => typeof p.id === 'number'), filterById: action.payload}
               default:
