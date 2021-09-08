@@ -76,9 +76,9 @@ export const FilterByGenre = (genre) => {  //TRY CATCH PARA ASYNC
 }
 
 
-export const FilterById = (value) => { //cambiar nombre
+export const FilterById = (id) => { //cambiar nombre
     return function(dispatch){
-        return dispatch({type: FILTER_BY_ID, payload: value})//TRY CATCH PARA ASYNC
+        return dispatch({type: FILTER_BY_ID, payload: id})//TRY CATCH PARA ASYNC
     }
 }
 

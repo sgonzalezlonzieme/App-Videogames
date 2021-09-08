@@ -85,7 +85,7 @@ async function getVideogameById (req, res, next) {
             if(resultApi){
               return res.send(responseApi);
             }else{
-              return res.send('No Videogame Found')
+              return res.send(['No Videogame Found'])
             }
          }
          

@@ -7,9 +7,9 @@ const initialState = {
       videogame: {},
       genres: [],
       newVideogame: {},
-      filterByGenres: 'All',
-      filterById: 'All',
-      orderBy: 'All',
+      genre: 'All',
+      id: 'All',
+      orderType: 'All'
 };
 
 //arreglar el query
@@ -28,37 +28,11 @@ function rootReducer(state = initialState, action){
       case RESTART_HOME: 
         return {...state, videogamesFiltered: []}
       case FILTER_BY_GENRE:
-           if(action.payload === 'All'){
-             return {...state, videogamesFiltered: [], filterByGenres: action.payload}
-           }else{
-             return {...state, videogamesFiltered: state.videogames.filter(p => p.genres?.includes(action.payload)), filterByGenres: action.payload}
-           }
+             return {...state, genre: action.payload}
       case FILTER_BY_ID: //trabajar sobre videogamesfilter
-           switch(action.payload){
-              case 'All':
-                return {...state, videogamesFiltered: [], filterById: action.payload}
-              case 'DbVideogames': 
-                return {...state, videogamesFiltered: state.videogames.filter(p => p.id.length > 10).length > 1 , filterById: action.payload}//typeof String
-              case 'ApiVideogames':
-                return {...state, videogamesFiltered: state.videogames.filter(p => typeof p.id === 'number'), filterById: action.payload}
-              default:
-                  return state;
-           }
+             return {...state, id: action.payload}
       case ORDER_BY:
-           switch(action.payload){//sobre videosgamesfilter
-              case 'Default order':
-               return {...state, videogamesFiltered: [], orderBy: action.payload}
-              case 'A-Z': //spread operator
-                return {...state, videogamesFiltered: [...state.videogamesFiltered.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))], orderBy: action.payload}
-              case 'Z-A': 
-                return {...state, videogamesFiltered: [...state.videogamesFiltered.sort((a,b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() < a.name.toLowerCase()) ? -1 : 0))], orderBy: action.payload}
-              case 'HIGHEST_TO_LOWEST':
-                return {...state, videogamesFiltered: [...state.videogamesFiltered.sort((a,b) => (a.rating < b.rating) ? 1 : ((b.rating < a.rating) ? -1 : 0))], orderBy: action.payload}
-              case 'LOWEST_TO_HIGHEST':
-                return {...state, videogamesFiltered: [...state.videogamesFiltered.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0))], orderBy: action.payload}
-              default:
-                return state;
-           }
+               return {...state, orderType: action.payload}
       default:
           return state; 
     }
