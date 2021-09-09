@@ -5,7 +5,7 @@ console.log(styles)
 export function LandingPageButton(){
      
     return(<div>
-       <Link className={styles.button} to='/home'>Home</Link>
+       <Link className={styles.button} to='/home'>Ready?</Link>
     </div>)
 }
 

@@ -5,6 +5,8 @@ export function filterByAndOrderBy(videogames, genre, id, orderType){
     if(genre !== 'All'){
            videogames = videogames.filter(p => p.genres?.includes(genre))
        }
+
+      //AGREGAR UNA OPCION PARA QUE ENTRE SIEMPRE Y DESCONECTE EL SORT 
   
     if(id !== 'All'){
         if(id === 'DbVideogames'){
