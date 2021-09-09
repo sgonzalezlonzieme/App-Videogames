@@ -22,7 +22,7 @@ export function VideogamesHome(){
 
     useEffect(() => {
        setCurrentPage(1);
-    }, [])
+    }, [videogamesByName])
     
     return(
         <div>
