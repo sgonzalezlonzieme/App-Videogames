@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { PostNewVideogame, getGenres } from "../../actions";
+import { postNewVideogame, getGenres } from "../../actions";
 import { useState, useEffect } from "react";
 import styles from './CreateVideogameForm.module.css'
 
@@ -44,7 +44,7 @@ export function CreateVideogameForm(){
     const handleSubmit = (e) => {
             e.preventDefault()
             if(createdVideogame.name && createdVideogame.image && createdVideogame.genres){
-              dispatch(PostNewVideogame(createdVideogame))
+              dispatch(postNewVideogame(createdVideogame))
             }
             console.log(createdVideogame)
         }

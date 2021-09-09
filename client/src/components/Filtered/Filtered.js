@@ -1,22 +1,32 @@
 import { useSelector, useDispatch } from "react-redux"
-import { FilterByGenre, FilterById, orderByRating } from "../../actions";
+import { filterByGenre, filterById, orderByRating, cleanVideogamesByName } from "../../actions";
 import styles from './Filtered.module.css'
 
 export function Filtered(){
 
-    const genres = useSelector(state => state.genres)
+    const {genres, videogamesByName} = useSelector(state => state)
+    
 
     const dispatch = useDispatch()
   
     function handleChangeGenres(e){
-        dispatch(FilterByGenre(e.target.value))
+        if(videogamesByName.length){
+          dispatch(cleanVideogamesByName())
+        }
+        dispatch(filterByGenre(e.target.value))
     } 
 
     function handleChangeId(e){
-        dispatch(FilterById(e.target.value))
+        if(videogamesByName.length){
+            dispatch(cleanVideogamesByName())
+          }
+        dispatch(filterById(e.target.value))
     }
 
     function handleChangeOrder(e){ //cambiar nombre
+        if(videogamesByName.length){
+            dispatch(cleanVideogamesByName())
+          }
         dispatch(orderByRating(e.target.value))
     }
 

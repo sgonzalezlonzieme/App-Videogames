@@ -29,6 +29,10 @@ export function filterByAndOrderBy(videogames, genre, id, orderType){
             videogames = [...videogames.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0))]
         }
     }
+    
+    if(videogames.length < 1){
+        videogames = ['No videogames found']
+    }
     console.log(videogames, "Adentro de la función")
     return videogames
 }

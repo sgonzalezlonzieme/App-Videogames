@@ -16,9 +16,10 @@ export function VideogameDetails(props){
     
 
     return(
+        videogame[0] === 'Server error 500' ? <h1>Server error, please try later</h1> : 
         <div className={styles.container}>
             <VideogameCardDetails name={videogame.name} genres={videogame.genres} 
             image={videogame.image} released={videogame.released} rating={videogame.rating} platforms={videogame.platforms} description={videogame.description}/>
-        </div>
+        </div> 
     )
 }

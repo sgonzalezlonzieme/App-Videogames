@@ -8,6 +8,7 @@ export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 export const FILTER_BY_ID = 'FILTER_BY_ID';
 export const ORDER_BY = 'ORDER_BY';
 export const RESTART_HOME = 'RESTART_HOME';
+export const CLEAN_VIDEOGAMES_BY_NAME = 'CLEAN_VIDEOGAMES_BY_NAME'
 
 
 export const getVideogames = () => { //TRY CATCH PARA ASYNC
@@ -18,7 +19,7 @@ export const getVideogames = () => { //TRY CATCH PARA ASYNC
             return dispatch({type: GET_VIDEOGAMES, payload: videogames})
         }catch(error){
            console.log(error)//CON UNA SOLA ACTION ME PUEDE ALCANZAR
-            return dispatch({type: GET_VIDEOGAMES, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+            return dispatch({type: GET_VIDEOGAMES, payload: ['Server error 500']})
         }
     }
 }
@@ -29,7 +30,7 @@ export const getVideogamesByQuery = (name) => { //TRY CATCH PARA ASYNC
             let results = (await axios.get(`http://localhost:3001/videogames?name=${name}`)).data
             return dispatch({type: GET_VIDEOGAMES_BY_NAME, payload: results})
         }catch(error){
-            return dispatch({type: GET_VIDEOGAMES_BY_NAME, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+            return dispatch({type: GET_VIDEOGAMES_BY_NAME, payload: ['Server error 500']})
         }
     }
 }
@@ -40,12 +41,12 @@ export const getVideogameById = (id) => { //TRY CATCH PARA ASYNC
             let result = (await axios.get(`http://localhost:3001/videogame/${id}`)).data
             return dispatch({type: GET_VIDEOGAMES_BY_ID, payload: result })
         }catch(error){
-            return dispatch({type: GET_VIDEOGAMES_BY_ID, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+            return dispatch({type: GET_VIDEOGAMES_BY_ID, payload: ['Server error 500']})
         }
     }
 }
 
-export const PostNewVideogame = (data) => {//TRY CATCH PARA ASYNC
+export const postNewVideogame = (data) => {//TRY CATCH PARA ASYNC
      return async function(dispatch){
         try{
             let response = await axios.post(`http://localhost:3001/videogame/`, data)
@@ -53,7 +54,7 @@ export const PostNewVideogame = (data) => {//TRY CATCH PARA ASYNC
             console.log(response)
             return dispatch({type: POST_NEW_VIDEOGAME, payload: newVideogame})//confirmar puerto
         }catch(error){
-            return dispatch({type: POST_NEW_VIDEOGAME, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+            return dispatch({type: POST_NEW_VIDEOGAME, payload: ['Server error 500']})
         }
      }
 }
@@ -64,19 +65,19 @@ export const getGenres = () => {
             let results = (await axios.get(`http://localhost:3001/genres`)).data
             return dispatch({type: GET_GENRES, payload: results })
         }catch(error){
-            return dispatch({type: POST_NEW_VIDEOGAME, payload: [{name: "Error" , image: 'https://www.lucushost.com/blog/wp-content/uploads/2020/06/http-error-500.png', genres: [""]}]})
+            return dispatch({type: GET_GENRES, payload: ['Server error 500']})
         }
     }
 }
 
-export const FilterByGenre = (genre) => {  //TRY CATCH PARA ASYNC
+export const filterByGenre = (genre) => {  //TRY CATCH PARA ASYNC
     return function(dispatch){
         return dispatch({type: FILTER_BY_GENRE, payload: genre})
     }
 }
 
 
-export const FilterById = (id) => { //cambiar nombre
+export const filterById = (id) => { //cambiar nombre
     return function(dispatch){
         return dispatch({type: FILTER_BY_ID, payload: id})//TRY CATCH PARA ASYNC
     }
@@ -90,7 +91,13 @@ export const orderByRating = (value) => {
 
 
 export const restartHome = () => {
-    return async function(dispatch){//TRY CATCH PARA ASYNC
-        return dispatch({type: RESTART_HOME})//TRY CATCH PARA ASYNC
+    return function(dispatch){
+        return dispatch({type: RESTART_HOME})
+}
+}
+
+export const cleanVideogamesByName = () => {
+    return function(dispatch){
+        return dispatch({type: CLEAN_VIDEOGAMES_BY_NAME})
     }
 }
