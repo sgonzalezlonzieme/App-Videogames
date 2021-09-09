@@ -44,7 +44,7 @@ export function Filtered(){
                 <option value='ApiVideogames'>Page Videogames</option>
             </select>
             <select onChange={handleChangeOrder} className={styles.select}>
-                <option value='Default order'>Default</option> 
+                <option value='Default order'>Default order</option> 
                 <option value='A-Z'>A-Z</option>
                 <option value='Z-A'>Z-A</option>
                 <option value='HIGHEST_TO_LOWEST'>Highest rating</option>
