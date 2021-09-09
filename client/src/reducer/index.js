@@ -6,7 +6,7 @@ const initialState = {
       videogamesByName: [],
       videogame: {},
       genres: [],
-      newVideogame: {},
+      newVideogame: [],
       genre: 'All',
       id: 'All',
       orderType: 'All'
@@ -22,7 +22,7 @@ function rootReducer(state = initialState, action){
       case GET_VIDEOGAMES_BY_ID://para el details
         return {...state, videogame: action.payload}
       case POST_NEW_VIDEOGAME://para el form
-        return {...state, newVideogame: action.payload, videogames: [...state.videogames, action.payload]} 
+        return {...state, newVideogame: action.payload, videogames: [...action.payload, ...state.videogames, action.payload]} 
       case GET_GENRES:
         return {...state, genres: action.payload}
       case RESTART_HOME: 

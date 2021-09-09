@@ -22,8 +22,7 @@ export function VideogamesHome(){
 
     useEffect(() => {
        setCurrentPage(1);
-       // filterByAndOrderBy(videogames, genre, id, orderType)
-   }, [currentPosts])
+    }, [])
     
     return(
         <div>
@@ -44,7 +43,7 @@ export function VideogamesHome(){
         </div>
         <div>
             {console.log(currentPosts,"HTML")}
-            {gamesToRender.length < 15 ? <div></div> : <Pagination postsPerPage={postsPerPage} totalPosts={gamesToRender.length} paginate={paginate}/>}
+            {gamesToRender.length <= 15 ? <div></div> : <Pagination postsPerPage={postsPerPage} totalPosts={gamesToRender.length} paginate={paginate}/>}
         </div>
         </div>)
 }

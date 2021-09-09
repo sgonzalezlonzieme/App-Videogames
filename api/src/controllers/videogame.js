@@ -23,7 +23,7 @@ async function postVideogame (req, res, next){
 
         await createdVideogame.addGenres(genres);
 
-        return res.send(createdVideogame)
+        return res.send([createdVideogame])
 
       }catch(error){
           next(error)

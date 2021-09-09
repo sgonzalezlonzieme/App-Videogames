@@ -14,7 +14,7 @@ export function VideogameDetails(props){
       dispatch(getVideogameById(id))
     }, []) // eslint-disable-line react-hooks/exhaustive-deps 
     
-
+    //Preguntar porque no rompe
     return(
         videogame[0] === 'Server error 500' ? <h1>Server error, please try later</h1> : 
         <div className={styles.container}>
