@@ -75,7 +75,7 @@ export function CreateVideogameForm(){
                    <label>Name : </label>
                    <div>
                    <input name='name' type='text' placeholder='Insert name...' value={createdVideogame.name} onChange={handleChange}/>
-                   {errors.name && (<div>{errors.name}</div>)}
+                   {errors.name && (<div className={styles.errors}>{errors.name}</div>)}
                    </div>
                </div>
                <div>
@@ -107,7 +107,7 @@ export function CreateVideogameForm(){
                    <label>Image : </label>
                    <div>
                    <input name='image' type='text' placeholder='Insert url...' value={createdVideogame.image} onChange={handleChange}/>
-                   {errors.image && (<div>{errors.image}</div>)}
+                   {errors.image && (<div className={styles.errors}>{errors.image}</div>)}
                    </div>
                </div> 
                <div>
@@ -118,7 +118,7 @@ export function CreateVideogameForm(){
                         <option value={genre.id}>{genre.name}</option>
                     ))}
                  </select>
-                     {errors.genres && (<div>{errors.genres}</div>)}
+                     {errors.genres && (<div className={styles.errors}>{errors.genres}</div>)}
                  </div>
                </div>
                <div>

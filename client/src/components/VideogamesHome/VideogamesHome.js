@@ -26,17 +26,17 @@ export function VideogamesHome(){
     
     return(
         <div>
-        <div> 
+        <div className={styles.container}> 
             {
              //Si todavía no llegó el pedido a la api
-             videogames.length < 1 ? <h1>Loading...</h1> :
+             videogames.length < 1 ? <h1 className={styles.loading}>Loading...</h1> :
              //Problema de servidor
-             currentPosts[0] === 'Server error 500' ? <h1>Server error, please try later</h1> :  
+             currentPosts[0] === 'Server error 500' ? <h1 className={styles.notFound}>Server error, please try later</h1> :  
              //Si no encontró ningún juego la search o el filter dejó vacio videogames
-             currentPosts[0] === 'No videogames found' ? <h1>No videogames found</h1> :
+             currentPosts[0] === 'No videogames found' ? <h1 className={styles.notFound}>No videogames found</h1> :
              
              currentPosts.map(games => (
-                <div className={styles.container_videogame}>
+                <div className={styles.videogame}>
                    <VideogamesCardsHome id={games.id} name={games.name} genres={games.genres?.join(', ')} image={games.image}/>
                 </div>
             ))}

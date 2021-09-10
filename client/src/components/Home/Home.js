@@ -4,11 +4,13 @@ import { getVideogames, getGenres } from "../../actions"
 import { Filtered } from "../Filtered/Filtered"
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
+import styles from "./Home.module.css"
 
 export function Home(){
   const videogames = useSelector(state => state.videogames);
   const genres = useSelector(state => state.genres)
   const dispatch = useDispatch()
+  
 
   useEffect(() => {
     if(videogames.length < 1){
@@ -20,7 +22,7 @@ export function Home(){
  }, []) // eslint-disable-line react-hooks/exhaustive-deps 
      
     return(
-        <div>
+        <div className={styles.container}>
            <div>
              <HomeInputSearch />
            </div>

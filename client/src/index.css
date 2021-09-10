@@ -1,5 +1,5 @@
 body {
-  background-color: blue;
+  background-color: rgb(40, 5, 68);
   background-size: cover; 
   background-position: center 100%;
   width: 100vw;
@@ -11,7 +11,7 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 code {
