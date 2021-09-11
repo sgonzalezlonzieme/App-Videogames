@@ -16,3 +16,12 @@
     align-items: center; 
     margin-top: 50px;
 }
+
+.serverError{
+    color: white;
+    display: flex;
+    justify-content: center; 
+    align-content: center; 
+    align-items: center; 
+    margin-top: 50px;
+}
