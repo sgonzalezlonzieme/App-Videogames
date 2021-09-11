@@ -25,14 +25,19 @@ export function CreateVideogameForm(){
     function validate(createdVideogame) {
         if(!createdVideogame.name){
             errors.name = 'name is required'
+        }else if (!/([A-Z]|[a-z])\w+/.test(createdVideogame.name)) {
+            errors.name = 'name is invalid'
         }else{
             errors.name = '';
         }
         if(!createdVideogame.image){
             errors.image = 'image is required'
+        }else if(/[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/.test(createdVideogame.image)){
+            errors.image = 'image is required'
         }else{
             errors.image = '';
         }
+        // https://regexr.com/39nr7
         if(!createdVideogame.genres){
             errors.genres = 'genres are required'
         }else{
@@ -46,7 +51,8 @@ export function CreateVideogameForm(){
             if(createdVideogame.name && createdVideogame.image && createdVideogame.genres){
               dispatch(postNewVideogame(createdVideogame))
             }
-            console.log(createdVideogame)
+            alert("Videogame created")
+
         }
     
     const handleChange = (e) => {
@@ -55,7 +61,6 @@ export function CreateVideogameForm(){
             [e.target.name] : e.target.value
         })
         setErrors(validate({...createdVideogame, [e.target.name]: e.target.value}))
-        console.log(errors)
     }
 
     const handleGenres = (e) => {
@@ -106,7 +111,7 @@ export function CreateVideogameForm(){
                <div>
                    <label>Image : </label>
                    <div>
-                   <input name='image' type='text' placeholder='Insert url...' value={createdVideogame.image} onChange={handleChange}/>
+                   <input name='image' type='url' placeholder='Insert url...' value={createdVideogame.image} onChange={handleChange}/>
                    {errors.image && (<div className={styles.errors}>{errors.image}</div>)}
                    </div>
                </div> 
@@ -122,7 +127,11 @@ export function CreateVideogameForm(){
                  </div>
                </div>
                <div>
-                    <input type='submit' value='Send'/>
+                    {
+                    !createdVideogame.name || !createdVideogame.image || !createdVideogame.genres ?
+                    <input type='submit' value='Send' disabled/> :
+                    <input type='submit' value='Send' /> 
+                     }  
                </div>
             </form>
         </div>

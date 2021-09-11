@@ -29,8 +29,10 @@ export function HomeInputSearch(){
 
     return(<div className={styles.container}>
         <form onSubmit={handleSubmit}>
-            <input name='videogame' type='text' placeholder='Insert videogame...' value={name} onChange={handleChange}/>
-            <button type='Submit'>{videogamesByName.length && !name ? "Show All" : "Search"}</button>
+            <div className={styles.input}>
+            <input name='videogame' type='text' placeholder='Insert name...' value={name} onChange={handleChange}/>
+            <button  type='Submit'>{videogamesByName.length && !name ? "Show All" : "Search"}</button>
+           </div> 
         </form>
     </div>)
 }

@@ -9,6 +9,7 @@ export function VideogamesHome(){
     const {videogames, videogamesByName, genre, id, orderType} = useSelector(state => state)
 
     const gamesToRender = videogamesByName.length ? videogamesByName : filterByAndOrderBy(videogames, genre, id, orderType)
+
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 15; 
     
@@ -22,7 +23,7 @@ export function VideogamesHome(){
 
     useEffect(() => {
        setCurrentPage(1);
-    }, [videogamesByName])
+    }, [videogamesByName, genre, id, orderType])
     
     return(
         <div>

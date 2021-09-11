@@ -2,10 +2,11 @@
 export function filterByAndOrderBy(videogames, genre, id, orderType){
     //Utilizo un espacio de memoria distinto por el sort
     videogames = [...videogames];
-    
+
     if(genre !== 'All'){
            videogames = videogames.filter(p => p.genres?.includes(genre))
        }
+
   
     if(id !== 'All'){
         if(id === 'DbVideogames'){
@@ -30,6 +31,6 @@ export function filterByAndOrderBy(videogames, genre, id, orderType){
     if(videogames.length < 1){
         videogames = ['No videogames found']
     }
-    
+
     return videogames
 }

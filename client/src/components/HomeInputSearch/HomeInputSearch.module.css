@@ -8,4 +8,9 @@
 
     margin-top: 27px;
     margin-bottom: 20px;
+    border-radius: 0px 0px 20px white;
+}
+
+.input{
+    border-radius: 0px 0px 20px white;
 }

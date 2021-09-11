@@ -1,4 +1,3 @@
-import './App.css';
 import { Route } from "react-router-dom"
 import React from 'react';
 import { LandingPage } from './components/LandingPage/LandingPage.js';
@@ -7,11 +6,12 @@ import { NavBar } from './components/NavBar/NavBar';
 import { CreateVideogameForm } from './components/CreateVideogameForm/CreateVideogameForm';
 import { VideogameDetails } from './components/VideogameDetails/VideogameDetails';
 import { useLocation } from 'react-router-dom';
+import styles from './App.module.css'
 
 function App() {
   const location = useLocation()
      
-  return (<div>
+  return (<div className={styles.container}>
     {location.pathname !== '/' ? <NavBar/> : null }
     <React.Fragment>
         <Route exact path="/" component={LandingPage}/>
