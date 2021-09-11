@@ -8,7 +8,7 @@ import {filterByAndOrderBy} from "../../Functions/filteredAndOrdered"
 export function VideogamesHome(){
     const {videogames, videogamesByName, genre, id, orderType} = useSelector(state => state)
 
-    const gamesToRender = videogamesByName.length ? videogamesByName : filterByAndOrderBy(videogames, genre, id, orderType)
+    const gamesToRender = filterByAndOrderBy(videogames, videogamesByName, genre, id, orderType)
 
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 15; 
@@ -32,7 +32,7 @@ export function VideogamesHome(){
              //Si todavía no llegó el pedido a la api
              videogames.length < 1 ? <h1 className={styles.loading}>Loading...</h1> :
              //Problema de servidor
-             currentPosts[0] === 'Server error 500' ? <h1 className={styles.notFound}>Server error, please try later</h1> :  
+             currentPosts[0] === 'Server error 500' ? <h1 className={styles.serverError}>Server error, please try later</h1> :  
              //Si no encontró ningún juego la search o el filter dejó vacio videogames
              currentPosts[0] === 'No videogames found' ? <h1 className={styles.notFound}>No videogames found</h1> :
              

@@ -16,6 +16,7 @@ export function VideogameDetails(props){
     
     //Preguntar porque no rompe
     return(
+        !videogame.image ? <h1 className={styles.loading}>Loading...</h1> : 
         videogame[0] === 'Server error 500' ? <h1>Server error, please try later</h1> : 
         <div className={styles.container}>
             <VideogameCardDetails name={videogame.name} genres={videogame.genres} 

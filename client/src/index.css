@@ -1,6 +1,6 @@
 body {
   background-image: url(./img/image\ 8.jpeg);
-  background-color: rgb(14, 2, 24);
+
   background-size: cover; 
   background-position: center 100%;
   width: 100%;
@@ -12,9 +12,9 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 
-  background-repeat: no-repeat;
+ 
 
 }
 

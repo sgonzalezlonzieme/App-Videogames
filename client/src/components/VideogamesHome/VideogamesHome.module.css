@@ -12,6 +12,17 @@
     font-size: 34px;
 }
 
+
+.serverError{
+    color: white;
+    background-color: black;
+    padding: 5px;
+    border-radius: 2px;
+    margin-top: 33px;
+    font-size: 34px;
+}
+
+
 .loading{
     color: white;
     margin-top: 50px;
@@ -38,16 +49,13 @@
     width: 23rem;
     height: 20rem;
     border: 10px;
+    padding-bottom: 20px;
 }
 
 .videogame:hover{
-    background-color: rgb(1, 1, 20);
-    box-shadow: 0px 0px 2.3px rgba(255, 255, 255, 0.4);
+    background-color: rgb(6, 1, 17);
+    box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.4);
     border: 20px;
     transform: scale(1.011);
     transition: transform .4s ease-in-out;
 }
-/* 
-.videogame h1:hover{
-    color:black;
-} */

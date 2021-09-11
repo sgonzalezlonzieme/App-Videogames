@@ -17,7 +17,7 @@ export function NavBar(){
                <Link onClick={handleClick}  to='/home' className={styles.links}>Home</Link>
             </div> 
             <div>
-                <Link to='/create' className={styles.links}>Create your videogame</Link>
+                <Link onClick={handleClick} to='/create' className={styles.links}>Create your videogame</Link>
             </div>
         </div>
     )

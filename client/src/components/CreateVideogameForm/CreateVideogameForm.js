@@ -31,9 +31,9 @@ export function CreateVideogameForm(){
             errors.name = '';
         }
         if(!createdVideogame.image){
-            errors.image = 'image is required'
+            errors.image = 'url is required'
         }else if(/[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/.test(createdVideogame.image)){
-            errors.image = 'image is required'
+            errors.image = 'url is required'
         }else{
             errors.image = '';
         }
@@ -79,14 +79,15 @@ export function CreateVideogameForm(){
                <div>
                    <label>Name : </label>
                    <div>
+                   {errors.name && (<div className={styles.errors}><strong>{errors.name}</strong></div>)}
                    <input name='name' type='text' placeholder='Insert name...' value={createdVideogame.name} onChange={handleChange}/>
-                   {errors.name && (<div className={styles.errors}>{errors.name}</div>)}
+                   
                    </div>
                </div>
                <div>
                    <label htmlFor='description'>Description : </label>
                    <div>
-                   <textarea id='description' name='description' type='text' placeholder='Insert description...' value={createdVideogame.description} onChange={handleChange}/>
+                   <textarea className={styles.description} id='description' name='description' type='text' placeholder='Insert description...' value={createdVideogame.description} onChange={handleChange}/>
                    </div>
                </div>
                <div>
@@ -105,25 +106,25 @@ export function CreateVideogameForm(){
                <div>
                    <label>Platforms : </label>
                    <div>
-                   <input name='platforms' type='text' placeholder='Insert platforms...' value={createdVideogame.platforms} onChange={handleChange}/>
+                   <textarea className={styles.platforms} name='platforms' type='text' placeholder='Insert platforms...' value={createdVideogame.platforms} onChange={handleChange}/>
                    </div>
                </div>
                <div>
                    <label>Image : </label>
                    <div>
+                   {errors.image && (<div className={styles.errors}><strong>{errors.image}</strong></div>)}
                    <input name='image' type='url' placeholder='Insert url...' value={createdVideogame.image} onChange={handleChange}/>
-                   {errors.image && (<div className={styles.errors}>{errors.image}</div>)}
                    </div>
                </div> 
                <div>
                   <label>Genres : </label>
                   <div>
+                      {errors.genres && (<div className={styles.errors}><strong>{errors.genres}</strong></div>)}
                   <select name='genres' multiple='multiple' onChange={handleGenres}>
                     {genres.map(genre => (
                         <option value={genre.id}>{genre.name}</option>
                     ))}
                  </select>
-                     {errors.genres && (<div className={styles.errors}>{errors.genres}</div>)}
                  </div>
                </div>
                <div>

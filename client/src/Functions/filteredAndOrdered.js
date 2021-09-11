@@ -1,13 +1,14 @@
 
-export function filterByAndOrderBy(videogames, genre, id, orderType){
+export function filterByAndOrderBy(videogames, videogamesByName, genre, id, orderType){
+
     //Utilizo un espacio de memoria distinto por el sort
-    videogames = [...videogames];
+    videogames = videogamesByName.length ? videogamesByName : [...videogames];
+    
 
     if(genre !== 'All'){
            videogames = videogames.filter(p => p.genres?.includes(genre))
        }
 
-  
     if(id !== 'All'){
         if(id === 'DbVideogames'){
             videogames = videogames.filter(p => p.id.length > 10)
@@ -15,7 +16,7 @@ export function filterByAndOrderBy(videogames, genre, id, orderType){
             videogames = videogames.filter(p => typeof p.id === 'number')
         }
     }
-    
+
     if(orderType !== 'Default order'){
         if(orderType === 'A-Z'){
             videogames = [...videogames.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0))]
@@ -27,7 +28,7 @@ export function filterByAndOrderBy(videogames, genre, id, orderType){
             videogames = [...videogames.sort((a,b) => (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0))]
         }
     }
-    
+
     if(videogames.length < 1){
         videogames = ['No videogames found']
     }

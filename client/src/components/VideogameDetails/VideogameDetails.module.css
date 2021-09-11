@@ -5,6 +5,14 @@
     align-items: center; 
     margin-top: 25px;
     margin-bottom: 25px; 
-    background-image: url(../../img/image\ 7.jpg);
+    /* background-image: url(../../img/image\ 7.jpg); */
 }
 
+.loading{
+    color: white;
+    display: flex;
+    justify-content: center; 
+    align-content: center; 
+    align-items: center; 
+    margin-top: 50px;
+}

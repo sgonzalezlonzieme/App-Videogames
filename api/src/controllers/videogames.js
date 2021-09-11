@@ -58,22 +58,22 @@ async function getAllVideogamesAndQuery(req, res, next){
            rating: p.rating,
        }))
 
-       const ApiPage1 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=1`)).data.results
+       const ApiPage1 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`)).data.results
 
-       const ApiPage2 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=2`)).data.results
+       const ApiPage2 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=2&page_size=40`)).data.results
 
-       const ApiPAge3 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=20&page=3`)).data.results
+       const ApiPAge3 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=3&page_size=40`)).data.results
 
-       let videogamesApiConcat = [...ApiPage1, ...ApiPage2, ...ApiPAge3]
-
-       const videogamesApiMap = videogamesApiConcat.map(p => ({
+        let videogamesApiConcat = [...ApiPage1, ...ApiPage2, ...ApiPAge3]
+         
+        const videogamesApiMap = videogamesApiConcat.map(p => ({
         id: p.id,
         name: p.name,
         image: p.background_image,
         genres: p.genres.map(p => p.name),
         rating: p.rating,
     }))
-       
+
        return res.send([...videogamesDbMap, ...videogamesApiMap])
 
     }catch(error){
