@@ -32,8 +32,6 @@ export function CreateVideogameForm(){
         }
         if(!createdVideogame.image){
             errors.image = 'url is required'
-        }else if(/[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/.test(createdVideogame.image)){
-            errors.image = 'url is required'
         }else{
             errors.image = '';
         }
