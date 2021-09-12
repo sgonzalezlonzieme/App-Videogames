@@ -20,8 +20,15 @@ async function postVideogame (req, res, next){
             platforms,
             image,
         })
-
+        
         await createdVideogame.addGenres(genres);
+        
+        newVideogame = await Videogame.findOne({where: {
+          id: createdVideogame.id
+        },
+        include: Genre })
+
+        newVideogame.genres = newVideogame.genres.map(genre => genre.name)
 
         return res.send([createdVideogame])
 

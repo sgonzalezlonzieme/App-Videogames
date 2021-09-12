@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES, GET_VIDEOGAMES_BY_NAME, GET_VIDEOGAMES_BY_ID, POST_NEW_VIDEOGAME, GET_GENRES, FILTER_BY_GENRE, RESTART_HOME,FILTER_BY_ID, ORDER_BY} from "../actions";
+import { GET_VIDEOGAMES, CLEAN_VIDEOGAME_DETAILS, GET_VIDEOGAMES_BY_NAME, GET_VIDEOGAMES_BY_ID, POST_NEW_VIDEOGAME, GET_GENRES, FILTER_BY_GENRE, RESTART_HOME,FILTER_BY_ID, ORDER_BY} from "../actions";
 
 
 const initialState = {
@@ -22,17 +22,19 @@ function rootReducer(state = initialState, action){
       case GET_VIDEOGAMES_BY_ID://para el details
         return {...state, videogame: action.payload}
       case POST_NEW_VIDEOGAME://para el form
-        return {...state, newVideogame: action.payload, videogames: [...action.payload, ...state.videogames, action.payload]} 
+        return {...state, newVideogame: action.payload, videogames: [...action.payload, ...state.videogames]} 
       case GET_GENRES:
         return {...state, genres: action.payload}
       case RESTART_HOME: 
-        return {...state, videogamesByName: [], videogame: {}, genre: 'All',  id: 'All',  orderType: 'All'}
+        return {...state, videogamesByName: [], genre: 'All',  id: 'All',  orderType: 'All'}
       case FILTER_BY_GENRE:
              return {...state, genre: action.payload}
       case FILTER_BY_ID: //trabajar sobre videogamesfilter
              return {...state, id: action.payload}
       case ORDER_BY:
              return {...state, orderType: action.payload}
+      case CLEAN_VIDEOGAME_DETAILS:
+             return {...state, videogame: []}
       default:
           return state; 
     }

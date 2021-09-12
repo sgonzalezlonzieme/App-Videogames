@@ -41,6 +41,12 @@ export function CreateVideogameForm(){
         }else{
             errors.genres = '';
         }
+
+        if(!createdVideogame.rating){
+            errors.rating = 'rating is required(0-5)'
+        }else{
+            errors.rating = '';
+        }
         return errors;
     }
     
@@ -97,7 +103,8 @@ export function CreateVideogameForm(){
                <div>
                    <label>Rating : </label>
                    <div>
-                   <input name='rating' type='number' min='0' max='5' placeholder='Insert number...' value={createdVideogame.rating} onChange={handleChange}/>
+                   {errors.rating && (<div className={styles.errors}><strong>{errors.rating}</strong></div>)}
+                   <input name='rating' type='number' min='0' max='5' step='.01' placeholder='Insert number...' value={createdVideogame.rating} onChange={handleChange}/>
                    </div>
                </div>
                {/* Mapear las platforms */}
@@ -127,9 +134,9 @@ export function CreateVideogameForm(){
                </div>
                <div>
                     {
-                    !createdVideogame.name || !createdVideogame.image || !createdVideogame.genres ?
-                    <input type='submit' value='Send' disabled/> :
-                    <input type='submit' value='Send' /> 
+                    !createdVideogame.name || !createdVideogame.image || !createdVideogame.genres || !createdVideogame.rating ?
+                    <button type='submit' disabled>Send</button> :
+                    <button type='submit'>Send</button>
                      }  
                </div>
             </form>

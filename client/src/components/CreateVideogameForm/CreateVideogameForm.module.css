@@ -11,6 +11,22 @@
 
 }
 
+.form button{
+    display: flex;  
+    justify-content: center; 
+    align-content: center; 
+    align-items: center; 
+    margin-right: 20px;
+    background-color: rgb(15, 1, 27);
+    color: rgb(226, 217, 202);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.form button:disabled{
+    color:rgb(131, 1, 1);
+}
+
 .description{
     resize: none;
     height: 125px;
@@ -20,6 +36,7 @@
     resize: none;
     height: 50px;
 }
+
 
 .container{
     display: flex;  
@@ -31,13 +48,11 @@
     /* background-image: url(../../img/image\ 7.jpg) */
 }
 
-
-
 .container label{
-    font-size: 20px;
+    font-size: 22px;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: white;
+    color: rgb(226, 217, 202);
 
 }
 
@@ -62,3 +77,4 @@
 .newVideogame{
     background-color: black;
 }
+

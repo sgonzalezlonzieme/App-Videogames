@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { restartHome } from "../../actions"
+import { restartHome, cleanVideogameDetails } from "../../actions"
 import styles from './NavBar.module.css'
 
 export function NavBar(){
     const dispatch = useDispatch()
 
     function handleClick(){
-        dispatch(restartHome()) 
+        dispatch(restartHome())
+        dispatch(cleanVideogameDetails()) 
     }
 
     return(

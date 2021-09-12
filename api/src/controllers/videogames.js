@@ -13,7 +13,7 @@ async function getAllVideogamesAndQuery(req, res, next){
         const resultDb = await Videogame.findAll({
             where: {
                  name: {
-                     [Op.iLike]: `${name}%` //corregir para que me traiga según el nombre
+                     [Op.iLike]: `${name}%` 
                  }
                 },
             include: Genre,
@@ -48,13 +48,15 @@ async function getAllVideogamesAndQuery(req, res, next){
         }
       }
         
-       const videogamesDb = await Videogame.findAll({include:Genre})
+       const videogamesDb = await Videogame.findAll({include: Genre})
+
+          
 
        const videogamesDbMap = videogamesDb.map(p => ({
            id: p.id,
            name: p.name,
            image: p.image,
-           genres: p.genres.map(p => p.name),
+           genres: p.genres.map(p => p.name), 
            rating: p.rating,
        }))
 

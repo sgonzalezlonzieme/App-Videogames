@@ -17,6 +17,12 @@
     margin-top: 1.25rem;
 }
 
+.rating{
+    color: rgb(226, 217, 202);
+    margin-top: 0.7rem; 
+    margin-bottom: 1.25rem;
+}
+
 .image{
    border-radius: 2px;
    bottom: auto;

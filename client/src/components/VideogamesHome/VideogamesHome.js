@@ -38,7 +38,7 @@ export function VideogamesHome(){
              
              currentPosts.map(games => (
                 <div className={styles.videogame}>
-                   <VideogamesCardsHome id={games.id} name={games.name} genres={games.genres?.join(', ')} image={games.image}/>
+                   <VideogamesCardsHome id={games.id} name={games.name} genres={games.genres?.join(', ')} image={games.image} rating={games.rating}/>
                 </div>
             ))}
         </div>

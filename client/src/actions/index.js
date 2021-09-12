@@ -8,6 +8,7 @@ export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 export const FILTER_BY_ID = 'FILTER_BY_ID';
 export const ORDER_BY = 'ORDER_BY';
 export const RESTART_HOME = 'RESTART_HOME';
+export const CLEAN_VIDEOGAME_DETAILS = 'CLEAN_VIDEOGAME_DETAILS';
 
 
 
@@ -51,7 +52,7 @@ export const postNewVideogame = (data) => {//TRY CATCH PARA ASYNC
         try{
             let response = await axios.post(`http://localhost:3001/videogame/`, data)
             let newVideogame = response.data
-            console.log(response)
+            console.log(response, "VIDEOGAME POST")
             return dispatch({type: POST_NEW_VIDEOGAME, payload: newVideogame})//confirmar puerto
         }catch(error){
             return dispatch({type: POST_NEW_VIDEOGAME, payload: ['Server error 500']})
@@ -94,4 +95,10 @@ export const restartHome = () => {
     return function(dispatch){
         return dispatch({type: RESTART_HOME})
 }
+}
+
+export const cleanVideogameDetails = () => {
+    return function(dispatch){
+        return dispatch({type: CLEAN_VIDEOGAME_DETAILS})
+    }
 }

@@ -7,7 +7,7 @@ import styles from './HomeInputSearch.module.css'
 export function HomeInputSearch(){
      const dispatch = useDispatch()
      
-     const videogamesByName = useSelector(state => state.videogamesByName)
+     const {videogamesByName, id, genre, orderType} = useSelector(state => state)
 
      const [name, setName] = useState("")
 
@@ -31,7 +31,11 @@ export function HomeInputSearch(){
         <form onSubmit={handleSubmit}>
             <div className={styles.input}>
             <input name='videogame' type='text' placeholder='Insert name...' value={name} onChange={handleChange}/>
-            <button  type='Submit'>{videogamesByName.length && !name ? "Show All" : "Search"}</button>
+            <button  type='Submit'>{
+             videogamesByName.length && !name  ? "Show All":
+             name ? "Search" :
+             id !== 'All' || genre !== 'All'|| orderType !== 'All' ? "Show All" : "Search" 
+            }</button>
            </div> 
         </form>
     </div>)

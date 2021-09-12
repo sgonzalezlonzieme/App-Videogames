@@ -12,4 +12,16 @@
 .select{
     margin-left: 25px;
     margin-right: 25px;
+    box-shadow: 0px 0px 1px rgb(7, 1, 1);
+    border: 20px black;
+    font-size: 1rem;
+    background-color: rgb(25, 2, 31);
+    color: rgb(226, 217, 202);
+    padding: 0.5rem;
+}
+
+.select:hover{
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 1.5px white;
+    cursor: pointer;
 }
