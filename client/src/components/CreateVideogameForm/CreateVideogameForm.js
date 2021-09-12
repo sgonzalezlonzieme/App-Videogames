@@ -97,7 +97,7 @@ export function CreateVideogameForm(){
                <div>
                    <label>Released : </label>
                    <div>
-                   <input name='released' type='text' placeholder='Insert date...' value={createdVideogame.released} onChange={handleChange}/>
+                   <input name='released' type='date' placeholder='Insert date...' value={createdVideogame.released} onChange={handleChange}/>
                    </div>
                </div>
                <div>

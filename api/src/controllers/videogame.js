@@ -28,10 +28,18 @@ async function postVideogame (req, res, next){
         },
         include: Genre })
 
-        newVideogame.genres = newVideogame.genres.map(genre => genre.name)
+        const response = {
+          id,
+          name,
+          description,
+          released,
+          rating,
+          platforms,
+          image,
+          genres: newVideogame.genres.map(genre => genre.name)
+        }
 
-        return res.send([createdVideogame])
-
+        return res.send([response])
       }catch(error){
           next(error)
       }
