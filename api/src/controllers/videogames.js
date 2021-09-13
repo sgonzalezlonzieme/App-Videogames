@@ -13,7 +13,7 @@ async function getAllVideogamesAndQuery(req, res, next){
         const resultDb = await Videogame.findAll({
             where: {
                  name: {
-                     [Op.iLike]: `${name}%` 
+                     [Op.iLike]: `%${name}%` 
                  }
                 },
             include: Genre,
