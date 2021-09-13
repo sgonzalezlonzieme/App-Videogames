@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { VideogamesCardsHome } from "../VideogamesCardsHome/VideogamesCardsHome";
 import { Pagination } from "../Pagination/Pagination";
 import styles from './VideogamesHome.module.css'
-import {filterByAndOrderBy} from "../../Functions/filteredAndOrdered"
+import {filterByAndOrderBy} from "../../functions/filteredAndOrdered"
 
 export function VideogamesHome(){
     const {videogames, videogamesByName, genre, id, orderType} = useSelector(state => state)

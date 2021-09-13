@@ -1,7 +1,7 @@
 import { VideogameCardDetails } from "../VideogameCardDetails/VideogameCardDetails"
 import {useDispatch, useSelector} from 'react-redux';
 import { useEffect } from "react";
-import { getVideogameById } from "../../actions";
+import { getVideogameById } from "../../redux/actions";
 import styles from './VideogameDetails.module.css'
 
 export function VideogameDetails(props){
@@ -9,6 +9,8 @@ export function VideogameDetails(props){
     const dispatch = useDispatch()
     const videogame = useSelector(state => state.videogame)
     const id = props.match.params.id
+    console.log(props)
+    console.log(videogame)
 
     useEffect(() => {
       dispatch(getVideogameById(id))

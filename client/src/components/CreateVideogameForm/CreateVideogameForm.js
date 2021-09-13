@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { postNewVideogame, getGenres } from "../../actions";
+import { postNewVideogame, getGenres } from "../../redux/actions";
 import { useState, useEffect } from "react";
 import styles from './CreateVideogameForm.module.css'
 

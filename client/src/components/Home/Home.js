@@ -1,6 +1,6 @@
 import { VideogamesHome } from "../VideogamesHome/VideogamesHome"
 import { HomeInputSearch} from "../HomeInputSearch/HomeInputSearch"
-import { getVideogames, getGenres } from "../../actions"
+import { getVideogames, getGenres } from "../../redux/actions"
 import { Filtered } from "../Filtered/Filtered"
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"

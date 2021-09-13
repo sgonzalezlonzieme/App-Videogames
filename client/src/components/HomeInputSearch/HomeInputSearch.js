@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { getVideogamesByQuery, restartHome} from "../../actions";
+import { getVideogamesByQuery, restartHome} from "../../redux/actions";
 import styles from './HomeInputSearch.module.css'
 
 

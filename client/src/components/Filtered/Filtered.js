@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { filterByGenre, filterById, orderByRating} from "../../actions";
+import { filterByGenre, filterById, orderByRating} from "../../redux/actions";
 import styles from './Filtered.module.css'
 
 export function Filtered(){

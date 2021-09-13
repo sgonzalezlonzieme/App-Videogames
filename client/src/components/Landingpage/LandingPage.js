@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { getVideogames, getGenres } from '../../actions';
+import { getVideogames, getGenres } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 import { LandingPageButton } from '../LandingPageButton/LandingPageButton';
 import styles from './LandingPage.module.css'
