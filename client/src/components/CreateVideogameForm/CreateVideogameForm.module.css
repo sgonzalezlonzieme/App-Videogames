@@ -3,8 +3,8 @@
     border:cornsilk;
     background-color: rgba(231, 222, 222, 0.4);
     padding: 30px;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 5rem;
+    padding-left: 5rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
     box-shadow: 0px 0px 2px rgb(230, 220, 220);
@@ -57,6 +57,11 @@
 }
 
 .container input{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.container textarea{
     margin-top: 5px;
     margin-bottom: 10px;
 }
