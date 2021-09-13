@@ -24,9 +24,9 @@ describe('Videogame model', () => {
            platforms: 'Pc',
            image: 'https://i.3djuegos.com/juegos/9205/zelda_wii_u/fotos/noticias/zelda_wii_u-5510112.webp'
           })
-          });
+        });
 
-      it('should receive an object for recipe', () => {
+      it('should receive an object for videogame', () => {
         let videogame = {
             name: 'Zelda' ,
             description: 'Fantasy game',
@@ -36,9 +36,9 @@ describe('Videogame model', () => {
             image: 'https://i.3djuegos.com/juegos/9205/zelda_wii_u/fotos/noticias/zelda_wii_u-5510112.webp'
             };
             expect(videogame).to.be.a('object');
-          });
+        });
           
-          it('should receive a number in both score properties', () => {
+          it('rating should be a number and description a string', () => {
             let videogame = {
             name: 'Zelda' ,
             description: 'Fantasy game',
@@ -50,7 +50,7 @@ describe('Videogame model', () => {
             expect(videogame).to.be.a('object');
             expect(typeof videogame.rating === 'number').to.equal(true);
             expect(typeof videogame.description === 'string').to.equal(true);
-          });
-       });
+        });
       });
     });
+  });
