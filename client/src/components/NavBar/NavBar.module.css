@@ -9,9 +9,11 @@
     align-content: center; 
     align-items: center; 
     flex-wrap: wrap;     
-    
-   
 }
+
+/* .container img{
+    width: 4rem;
+} */
 
 .links{
     color:rgb(255, 255, 255);
