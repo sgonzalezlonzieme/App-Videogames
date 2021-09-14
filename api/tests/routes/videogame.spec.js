@@ -15,6 +15,7 @@ const videogame = {
   platforms: 'Pc',
   image: 'https://i.3djuegos.com/juegos/9205/zelda_wii_u/fotos/noticias/zelda_wii_u-5510112.webp',
   id: "0cc2fcd3-a7e7-4300-8835-ab0e002d6329",
+  genres: [action, adventure]
 };
 
 describe('Videogame routes', () => {
