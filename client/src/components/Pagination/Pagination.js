@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Pagination.module.css'
+import icon from '../../img/pac-man.png'
 
 export function Pagination({postsPerPage, totalPosts, paginate}){
     const pageNumbers = [];
@@ -9,7 +10,7 @@ export function Pagination({postsPerPage, totalPosts, paginate}){
     }
 
     return (<div className={styles.container}>
-        <img src='https://cdn-icons-png.flaticon.com/128/1837/1837758.png' alt='In-Games'/>
+        <img src={icon} width="110px" alt='In-Games'/>
         <nav>
         <ul className="Pagination">
             {pageNumbers.map(number => (

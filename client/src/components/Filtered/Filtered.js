@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux"
 import { filterByGenre, filterById, orderByRating} from "../../redux/actions";
 import styles from './Filtered.module.css'
+import icon from '../../img/ghost.png'
+import icon2 from '../../img/ghost2.png'
 
 export function Filtered(){
 
@@ -23,7 +25,7 @@ export function Filtered(){
 
     return(
         <div className={styles.container}>
-            <img src='https://cdn-icons-png.flaticon.com/128/275/275976.png' alt="In-Games"/>
+            <img src={icon} width="80px" alt="In-Games"/>
             <select onChange={handleChangeGenres} className={styles.select}>
                <option value='All'>All Genres</option>
                {genres.map(p => (
@@ -42,7 +44,7 @@ export function Filtered(){
                 <option value='HIGHEST_TO_LOWEST'>Highest rating</option>
                 <option value='LOWEST_TO_HIGHEST'>Lowest rating</option>
             </select>
-            <img src='https://cdn-icons-png.flaticon.com/128/862/862907.png' alt="In-Games"/>
+            <img src={icon2} width="80px" alt="In-Games"/>
         </div>
     )
 }

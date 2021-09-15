@@ -1,11 +1,8 @@
 
-export function filterByAndOrderBy(videogames, videogamesByName, genre, id, orderType, platform){
+export function filterByAndOrderBy(videogames, videogamesByName, genre, id, orderType){
 
     //Utilizo un espacio de memoria distinto por el sort
     videogames = videogamesByName.length ? videogamesByName : [...videogames];
-
- 
-    console.log(videogames, "FUNCTION")
 
     
     if(genre !== 'All'){
