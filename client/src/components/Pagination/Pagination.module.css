@@ -10,9 +10,9 @@
 .container button   {
     list-style: none;
     cursor: pointer;
-    color: rgb(247, 239, 239);
+    color: rgb(31, 2, 31);
     box-shadow: 0px 0px 5px rgb(255, 230, 230);
-    background-color:rgb(31, 2, 31);
+    background-color:rgb(228, 205, 205);
     border-radius: 2px;
   
     padding: 4px;
@@ -29,8 +29,8 @@
 }
 
 .container button:hover{
-    background-color: rgba(6, 1, 20, 0.959);
+
     transition: transform .3s ease;
-    color:rgb(226, 217, 202);
+    color:rgba(248, 3, 3, 0.911);
 
 }

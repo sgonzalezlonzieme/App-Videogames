@@ -3,7 +3,7 @@
     padding: 8px;
     box-shadow: 0px 0px 10px rgb(51, 2, 51);
     width: 100%;
-    height: 80px;
+    height: 75px;
     display: flex;
     justify-content: center; 
     align-content: center; 
@@ -11,9 +11,6 @@
     flex-wrap: wrap;     
 }
 
-/* .container img{
-    width: 4rem;
-} */
 
 .links{
     color:rgb(255, 255, 255);
@@ -26,13 +23,14 @@
     margin-bottom: 0px;
     margin-left: 102px;
     margin-right: 50px;
-    font-size: 23px;
+    font-size: 22px;
     box-shadow: 0px 0px 0.1px rgb(84, 39, 209);
     padding: 10px
 }
 
 .links p{
   margin-right: 8px;
+  margin-left: 8px;
 }
 
 .links:hover{
@@ -46,13 +44,14 @@
 }
 
 .home{
-    margin-right: 5.8rem;
+    margin-right: 2.8rem;
 }
 
 .icon{
-    margin-left: 3.5rem;
+    margin-left: 3.2rem;
 }
 
 .create{
-    margin-left: 20px;
+    margin-left: 30px;
+    
 }

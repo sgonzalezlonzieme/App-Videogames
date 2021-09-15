@@ -35,7 +35,6 @@ export function VideogamesHome(){
              currentPosts[0] === 'Server error 500' ? <h1 className={styles.serverError}>Server error, please try later</h1> :  
              //Si no encontró ningún juego la search o el filter dejó vacio videogames
              currentPosts[0] === 'No videogames found' ? <h1 className={styles.notFound}>No videogames found</h1> :
-             
              currentPosts.map(games => (
                 <div className={styles.videogame}>
                    <VideogamesCardsHome id={games.id} name={games.name} genres={games.genres?.join(', ')} image={games.image} rating={games.rating}/>

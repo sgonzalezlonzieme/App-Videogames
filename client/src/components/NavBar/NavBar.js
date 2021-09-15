@@ -24,12 +24,13 @@ export function NavBar(){
             </div> 
             <div className={styles.icon}>      
                <Link onClick={handleOnClickIcon}  to='/home' className={styles.links}>
-                <p>SaintVideogames</p>
+               <img src='icon_nav.png' alt='Restart Home'/>
+                <p>SaintGames</p>
               <img src='icon_nav.png' alt='Restart Home'/>
               </Link>
             </div>
             <div className={styles.create}>
-                <Link onClick={handleOnClick} to='/create' className={styles.links}>Create your videogame</Link>
+                <Link onClick={handleOnClick} to='/create' className={styles.links}>Create videogame</Link>
             </div>
         </div>
     )

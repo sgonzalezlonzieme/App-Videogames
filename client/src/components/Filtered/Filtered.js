@@ -6,7 +6,6 @@ export function Filtered(){
 
     const {genres} = useSelector(state => state)
     
-
     const dispatch = useDispatch()
   
     function handleChangeGenres(e){

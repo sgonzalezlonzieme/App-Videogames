@@ -50,8 +50,6 @@ async function getAllVideogamesAndQuery(req, res, next){
         
        const videogamesDb = await Videogame.findAll({include: Genre})
 
-          
-
        const videogamesDbMap = videogamesDb.map(p => ({
            id: p.id,
            name: p.name,
