@@ -6,9 +6,9 @@ import styles from './VideogamesHome.module.css'
 import {filterByAndOrderBy} from "../../functions/filteredAndOrdered"
 
 export function VideogamesHome(){
-    const {videogames, videogamesByName, genre, id, orderType} = useSelector(state => state)
-
-    const gamesToRender = filterByAndOrderBy(videogames, videogamesByName, genre, id, orderType)
+    const {videogames, videogamesByName, platform, genre, id, orderType} = useSelector(state => state)
+    console.log(platform, "VIDEOGAMES HOME")
+    const gamesToRender = filterByAndOrderBy(videogames, videogamesByName, genre, id, orderType, platform)
 
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 15; 
@@ -47,4 +47,3 @@ export function VideogamesHome(){
         </div>
         </div>)
 }
-

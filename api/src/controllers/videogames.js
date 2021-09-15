@@ -19,24 +19,26 @@ async function getAllVideogamesAndQuery(req, res, next){
             include: Genre,
          })
 
-        const responseDb = resultDb.map(p => 
+        const responseDb = resultDb.map(game => 
             ({
-              id: p.id,
-              name: p.name,
-              image: p.image,
-              genres: p.genres.map(p => p.name),
-              rating: p.rating,
+              id: game.id,
+              name: game.name,
+              image: game.image,
+              genres: game.genres.map(p => p.name),
+              rating: game.rating,
+              platforms: game.platforms,
             }))
 
         const resultApi = (await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`)).data.results
         
-        const responseApi = resultApi.map(p =>
+        const responseApi = resultApi.map(game =>
             ({
-              id: p.id,
-              name: p.name,
-              image: p.background_image,
-              genres: p.genres.map(p => p.name),
-              rating: p.rating
+              id: game.id,
+              name: game.name,
+              image: game.background_image,
+              genres: game.genres.map(genre => genre.name),
+              rating: game.rating,
+              platforms: game.platforms.map(platforms => platforms.platform.name),
             }))
         
         const responseDb_Api = [...responseDb, ...responseApi].slice(0, 15)
@@ -50,12 +52,13 @@ async function getAllVideogamesAndQuery(req, res, next){
         
        const videogamesDb = await Videogame.findAll({include: Genre})
 
-       const videogamesDbMap = videogamesDb.map(p => ({
-           id: p.id,
-           name: p.name,
-           image: p.image,
-           genres: p.genres.map(p => p.name), 
-           rating: p.rating,
+       const videogamesDbMap = videogamesDb.map(game => ({
+           id: game.id,
+           name: game.name,
+           image: game.image,
+           genres: game.genres.map(p => p.name), 
+           rating: game.rating,
+           platforms: [game.platforms],
        }))
 
        const ApiPage1 = (await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`)).data.results
@@ -66,13 +69,15 @@ async function getAllVideogamesAndQuery(req, res, next){
 
         let videogamesApiConcat = [...ApiPage1, ...ApiPage2, ...ApiPAge3]
          
-        const videogamesApiMap = videogamesApiConcat.map(p => ({
-        id: p.id,
-        name: p.name,
-        image: p.background_image,
-        genres: p.genres.map(p => p.name),
-        rating: p.rating,
+        const videogamesApiMap = videogamesApiConcat.map(game => ({
+        id: game.id,
+        name: game.name,
+        image: game.background_image,
+        genres: game.genres.map(p => p.name),
+        rating: game.rating,
+        platforms: game.platforms.map(platforms => platforms.platform.name),
     }))
+      
 
        return res.send([...videogamesDbMap, ...videogamesApiMap])
 

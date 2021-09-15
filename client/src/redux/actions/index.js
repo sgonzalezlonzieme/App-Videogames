@@ -6,6 +6,7 @@ export const POST_NEW_VIDEOGAME = 'POST_NEW_VIDEOGAME';
 export const GET_GENRES = 'GET_GENRES';
 export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 export const FILTER_BY_ID = 'FILTER_BY_ID';
+export const FILTER_BY_PLATFORM = 'FILTER_BY_PLATFORM'
 export const ORDER_BY = 'ORDER_BY';
 export const RESTART_HOME = 'RESTART_HOME';
 export const CLEAN_VIDEOGAME_DETAILS = 'CLEAN_VIDEOGAME_DETAILS';
@@ -102,3 +103,4 @@ export const cleanVideogameDetails = () => {
         return dispatch({type: CLEAN_VIDEOGAME_DETAILS})
     }
 }
+

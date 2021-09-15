@@ -1,19 +1,22 @@
 
-export function filterByAndOrderBy(videogames, videogamesByName, genre, id, orderType){
+export function filterByAndOrderBy(videogames, videogamesByName, genre, id, orderType, platform){
 
     //Utilizo un espacio de memoria distinto por el sort
     videogames = videogamesByName.length ? videogamesByName : [...videogames];
-    console.log(videogames, "FUNCION")
 
+ 
+    console.log(videogames, "FUNCTION")
+
+    
     if(genre !== 'All'){
-           videogames = videogames.filter(p => p.genres?.includes(genre))
+           videogames = videogames.filter(game => game.genres?.includes(genre))
        }
 
     if(id !== 'All'){
         if(id === 'DbVideogames'){
-            videogames = videogames.filter(p => p.id.length > 10)
+            videogames = videogames.filter(game => game.id.length > 10)
         }else if(id === 'ApiVideogames'){
-            videogames = videogames.filter(p => typeof p.id === 'number')
+            videogames = videogames.filter(game => typeof game.id === 'number')
         }
     }
 

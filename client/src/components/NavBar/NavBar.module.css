@@ -48,8 +48,13 @@
 }
 
 .icon{
-    margin-left: 3.2rem;
+    margin-left: 4.05rem;
+    
 }
+
+/* .icon img{
+    margin: 10px;
+} */
 
 .create{
     margin-left: 30px;

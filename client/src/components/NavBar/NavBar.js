@@ -24,9 +24,9 @@ export function NavBar(){
             </div> 
             <div className={styles.icon}>      
                <Link onClick={handleOnClickIcon}  to='/home' className={styles.links}>
-               <img src='icon_nav.png' alt='Restart Home'/>
-                <p>SaintGames</p>
-              <img src='icon_nav.png' alt='Restart Home'/>
+               {/* <img src='https://cdn-icons-png.flaticon.com/128/744/744141.png' width='70px' alt='Restart Home'/> */}
+                <p>In-Games</p>
+                <img src='https://cdn-icons-png.flaticon.com/128/744/744141.png' width='70px' alt='Restart Home'/>
               </Link>
             </div>
             <div className={styles.create}>

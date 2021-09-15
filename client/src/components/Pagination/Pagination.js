@@ -9,6 +9,7 @@ export function Pagination({postsPerPage, totalPosts, paginate}){
     }
 
     return (<div className={styles.container}>
+        <img src='https://cdn-icons-png.flaticon.com/128/1837/1837758.png' alt='In-Games'/>
         <nav>
         <ul className="Pagination">
             {pageNumbers.map(number => (

@@ -9,7 +9,8 @@ const initialState = {
       newVideogame: [],
       genre: 'All',
       id: 'All',
-      orderType: 'All'
+      orderType: 'All',
+      platform: 'All',
 };
 
 //arreglar el query
