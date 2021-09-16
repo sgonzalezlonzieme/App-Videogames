@@ -10,7 +10,7 @@ export function Pagination({postsPerPage, totalPosts, paginate}){
     }
 
     return (<div className={styles.container}>
-        <img className={styles.pacman} src={icon} width="100px" alt='In-Games'/>
+        {/* <img className={styles.pacman} src={icon} width="100px" alt='In-Games'/> */}
         <nav>
         <ul className="Pagination">
             {pageNumbers.map(number => (

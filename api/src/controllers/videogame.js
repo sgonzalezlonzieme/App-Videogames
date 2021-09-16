@@ -9,7 +9,7 @@ async function postVideogame (req, res, next){
          
         let id = uuidv4();
 
-        const {name, description, released, rating, platforms, genres, image} = req.body;
+        const {name, price, description, released, rating, platforms, genres, image} = req.body;
 
         const createdVideogame = await Videogame.create({
             id,
@@ -19,6 +19,7 @@ async function postVideogame (req, res, next){
             rating,
             platforms,
             image,
+            price,
         })
         
         await createdVideogame.addGenres(genres);
@@ -36,7 +37,8 @@ async function postVideogame (req, res, next){
           rating,
           platforms,
           image,
-          genres: newVideogame.genres.map(genre => genre.name)
+          genres: newVideogame.genres.map(genre => genre.name),
+          price,
         }
 
         return res.send([response])

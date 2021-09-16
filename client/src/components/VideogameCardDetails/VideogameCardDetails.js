@@ -31,6 +31,11 @@ export function VideogameCardDetails(props){
             <div className={styles.text} id='rating'>{props.rating}</div></>)}
         </div>
         <div className={styles.text}>
+            {!props.price ? <div></div> :
+            (<><label><strong>Price</strong></label>
+            <div className={styles.text} id='price'>{props.price}</div></>)}
+        </div>
+        <div className={styles.text}>
             {!props.platforms ? <div></div> :
             (<><label><strong>Platforms</strong></label>
             <div className={styles.text} id='platforms'>{props.platforms}</div></>)}
