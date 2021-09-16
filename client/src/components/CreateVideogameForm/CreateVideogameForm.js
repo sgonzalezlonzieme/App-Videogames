@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { postNewVideogame, getGenres } from "../../redux/actions";
 import { useState, useEffect } from "react";
 import styles from './CreateVideogameForm.module.css'
+import icon from '../../img/videogame.png'
+import icon2 from '../../img/PS4.png'
 
 export function CreateVideogameForm(){
     const dispatch = useDispatch()
@@ -79,6 +81,7 @@ export function CreateVideogameForm(){
     
     return(
         <div className={styles.container}>
+            <img src={icon2} alt='In-Games' width='300px' />
             <form onSubmit={(e) => handleSubmit(e)} className={styles.form}>
                <div>
                    <label>Name : </label>
@@ -140,6 +143,7 @@ export function CreateVideogameForm(){
                      }  
                </div>
             </form>
+            <img src={icon} alt='In-Games' width='300px' />
         </div>
     )
 }

@@ -34,7 +34,7 @@
 }
 
 .links:hover{
-    color:rgb(211, 9, 9);
+    color:rgb(66, 10, 197);
     display: flex;  
     justify-content: center; 
     align-content: center; 
@@ -43,8 +43,16 @@
     
 }
 
+.container img{
+    margin-right: 5px;
+}
+
 .home{
-    margin-right: 2.8rem;
+    margin-right: 2.0rem;
+}
+
+.home img{
+    margin-left: 6px;
 }
 
 .icon{
@@ -59,4 +67,8 @@
 .create{
     margin-left: 30px;
     
+}
+
+.create img{
+    margin-left: 6px;
 }

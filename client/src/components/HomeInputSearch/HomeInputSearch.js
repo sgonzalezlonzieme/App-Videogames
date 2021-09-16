@@ -28,6 +28,7 @@ export function HomeInputSearch(){
 
 
     return(<div className={styles.container}>
+            <label>Search your videogame</label>
         <form onSubmit={handleSubmit}>
             <div className={styles.input}>
             <input name='videogame' type='text' placeholder='Insert name...' value={name} onChange={handleChange}/>

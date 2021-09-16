@@ -10,7 +10,6 @@ const initialState = {
       genre: 'All',
       id: 'All',
       orderType: 'All',
-      platform: 'All',
 };
 
 //arreglar el query
