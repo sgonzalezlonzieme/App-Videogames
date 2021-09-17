@@ -27,7 +27,6 @@ async function getAllVideogamesAndQuery(req, res, next){
               genres: game.genres.map(p => p.name),
               rating: game.rating,
               platforms: game.platforms,
-              price: game.price,
             }))
 
         const resultApi = (await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`)).data.results

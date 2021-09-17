@@ -101,12 +101,6 @@ export function CreateVideogameForm(){
                    <div>
                    <input name='released' type='date' placeholder='Insert date...' value={createdVideogame.released} onChange={handleChange}/>
                    </div>
-               </div>
-                    <label>Price :</label>
-                    <div>
-                    <input name='price' type='number' placeholder='Insert price...' value={createdVideogame.price} onChange={handleChange}/>
-                    </div>
-               <div>
                    <label>Rating : </label>
                    <div>
                    {errors.rating && (<div className={styles.errors}><strong>{errors.rating}</strong></div>)}

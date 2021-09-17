@@ -19,7 +19,6 @@ async function postVideogame (req, res, next){
             rating,
             platforms,
             image,
-            price,
         })
         
         await createdVideogame.addGenres(genres);
