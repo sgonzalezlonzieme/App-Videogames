@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
       type: DataTypes.DECIMAL(10,2),
     },
     platforms: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, //Borrar y realizar el mismo proceso que genres
     },
     image: {
       type: DataTypes.STRING,
